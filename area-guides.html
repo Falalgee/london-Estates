@@ -1,0 +1,443 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<meta content="web_standard" name="shell-type"/>
+<title>Area Guides | London Estates</title>
+<meta name="description" content="Explore our hyper-local area guides for West London. Discover what it's like to live in Hammersmith, Chiswick, Fulham, Brook Green, Shepherds Bush, and Ealing."/>
+<meta property="og:title" content="Area Guides | London Estates"/>
+<meta property="og:description" content="Explore our hyper-local area guides for West London."/>
+<meta property="og:type" content="website"/>
+
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@24,400,0,0" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,500;0,600;0,700;1,400;1,500&amp;family=Plus+Jakarta+Sans:wght@400;500;600;700&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+
+<style>
+@layer base {
+  html { scroll-behavior: smooth; }
+  body { margin: 0; padding: 0; overscroll-behavior: none; }
+  ::-webkit-scrollbar { display: none; }
+  main > :first-child { margin-top: 0 !important; }
+  main > :last-child { margin-bottom: 0 !important; }
+  [id] { scroll-margin-top: 6.5rem; }
+  * { -webkit-tap-highlight-color: transparent; }
+}
+
+/* ---- Component primitives ---- */
+.btn {
+  display: inline-flex; align-items: center; justify-content: center; gap: 0.5rem;
+  height: 2.5rem; padding: 0 1rem;
+  font-family: inherit; font-size: 0.8125rem; font-weight: 500; letter-spacing: 0.01em;
+  border-radius: 6px; border: 1px solid transparent;
+  transition: background-color 150ms ease, border-color 150ms ease, color 150ms ease, box-shadow 150ms ease;
+  cursor: pointer; white-space: nowrap; text-decoration: none;
+}
+.btn:focus-visible { outline: none; box-shadow: 0 0 0 2px #fbf9f5, 0 0 0 4px rgba(66,5,49,0.28); }
+.btn-primary { background-color: #420531; color: #fff; }
+.btn-primary:hover { background-color: #5c1d48; }
+.btn-secondary { background-color: #ffffff; color: #420531; border-color: #E7E2D8; }
+.btn-secondary:hover { border-color: #d5c1ca; }
+.btn-ghost { background: transparent; color: #51434a; }
+.btn-ghost:hover { color: #1b1c1a; background-color: #f5f3ef; }
+.btn-outline-light { background: transparent; color: #fff; border-color: rgba(255,255,255,0.22); }
+.btn-outline-light:hover { background: rgba(255,255,255,0.06); border-color: rgba(255,255,255,0.32); }
+.btn-ghost-light { background: transparent; color: rgba(255,255,255,0.7); }
+.btn-ghost-light:hover { color: #fff; background-color: rgba(255,255,255,0.06); }
+.btn-sm { height: 2.25rem; padding: 0 0.75rem; font-size: 0.75rem; }
+.btn-lg { height: 2.75rem; padding: 0 1.25rem; font-size: 0.875rem; }
+</style>
+
+<script src="https://cdn.tailwindcss.com"></script>
+<script id="tailwind-config">
+tailwind.config = {
+  darkMode: "class",
+  theme: {
+    extend: {
+      colors: {
+        primary: '#420531',
+        'primary-hover': '#5c1d48',
+        'mulberry-deep': '#2a0517',
+        'mulberry-vivid': '#73255B',
+        surface: '#fbf9f5',
+        'surface-raised': '#ffffff',
+        'surface-low': '#f5f3ef',
+        'surface-muted': '#efeeea',
+        'linen-warm': '#F3EFE6',
+        'on-surface': '#1b1c1a',
+        'on-surface-variant': '#51434a',
+        'slate-muted': '#525A62',
+        'border-hairline': '#E7E2D8',
+        'border-strong': '#d5c1ca',
+        'status-available': '#2E6B4F',
+        'status-sold': '#933C40',
+        'status-let': '#2a0517',
+        'plum-charcoal': '#1a0a13'
+      },
+      fontFamily: {
+        sans: ['"Plus Jakarta Sans"', 'ui-sans-serif', 'system-ui', 'sans-serif'],
+        serif: ['"Playfair Display"', 'ui-serif', 'Georgia', 'serif']
+      },
+      fontSize: {
+        hero: ['52px', { lineHeight: '1.05', letterSpacing: '-0.025em', fontWeight: '600' }],
+        'hero-sm': ['34px', { lineHeight: '1.1', letterSpacing: '-0.02em', fontWeight: '600' }],
+        h1: ['36px', { lineHeight: '1.15', letterSpacing: '-0.02em', fontWeight: '500' }],
+        'h1-sm': ['28px', { lineHeight: '1.2', letterSpacing: '-0.015em', fontWeight: '500' }],
+        h2: ['24px', { lineHeight: '1.25', letterSpacing: '-0.015em', fontWeight: '500' }],
+        h3: ['16px', { lineHeight: '1.4', letterSpacing: '-0.005em', fontWeight: '600' }],
+        lead: ['17px', { lineHeight: '1.6', fontWeight: '400' }],
+        body: ['14.5px', { lineHeight: '1.6', fontWeight: '400' }],
+        small: ['13px', { lineHeight: '1.55', fontWeight: '400' }],
+        label: ['13px', { lineHeight: '1.4', fontWeight: '500' }],
+        caps: ['10.5px', { lineHeight: '1.2', letterSpacing: '0.09em', fontWeight: '600' }],
+        meta: ['11.5px', { lineHeight: '1.4', letterSpacing: '0.01em', fontWeight: '500' }],
+        price: ['20px', { lineHeight: '1.2', letterSpacing: '-0.01em', fontWeight: '600' }]
+      },
+      borderRadius: { sm: '4px', DEFAULT: '6px', md: '6px', lg: '8px' },
+      boxShadow: {
+        xs: '0 1px 2px 0 rgb(0 0 0 / 0.04)',
+        sm: '0 1px 3px 0 rgb(0 0 0 / 0.06), 0 1px 2px -1px rgb(0 0 0 / 0.04)',
+        md: '0 4px 12px -2px rgb(0 0 0 / 0.06), 0 2px 4px -2px rgb(0 0 0 / 0.04)'
+      },
+      maxWidth: { site: '1240px' }
+    }
+  }
+};
+</script>
+</head>
+
+<body class="bg-surface font-sans text-body text-on-surface antialiased" data-page="area-guides">
+
+<!-- ================= HEADER ================= -->
+<header class="fixed top-0 w-full z-50 bg-surface border-b border-border-hairline">
+  <div class="h-16 max-w-site mx-auto px-6 md:px-8 flex items-center justify-between gap-6">
+    <a href="index.html" data-path="home" class="flex items-center gap-3 shrink-0">
+      <img alt="" class="h-7 w-auto object-contain" src="https://lh3.googleusercontent.com/aida/AEtjO1XJhx9kwFdPEgMI_74g2NRFjMQEM8tG_2yJMOhCAJuD38YbIXtYfxGv6xo5WWM49Gb6dkHNJzDt6jMplhyFW0nd3Q0mvOmpoAWphpHtKIztcDYHPE81UYiUSA_a1ILIp2uvKJ55mp8LRpJDrb2z346gzrofjPdlpncWr4jribr2GU0-udpC4LvL30gizTBz79Som_ExLrizAThD7PxEgbynz8hPem4Grxn3DhuVjlTixn-uJvmRhHCzY9Y" />
+      <div class="flex flex-col leading-none">
+        <span class="font-serif text-[17px] text-primary tracking-tight">London Estates</span>
+      </div>
+    </a>
+
+    <nav class="hidden xl:flex items-center gap-1" data-active-classes="text-primary">
+      <a class="px-3 py-2 text-label text-on-surface-variant hover:text-primary transition-colors rounded" data-path="buy" href="buy.html">Buy</a>
+      <a class="px-3 py-2 text-label text-on-surface-variant hover:text-primary transition-colors rounded" data-path="rent" href="rent.html">Rent</a>
+      <a class="px-3 py-2 text-label text-on-surface-variant hover:text-primary transition-colors rounded" data-path="sell" href="sell.html">Sell</a>
+      <a class="px-3 py-2 text-label text-on-surface-variant hover:text-primary transition-colors rounded" data-path="let" href="let.html">Let</a>
+      <a class="px-3 py-2 text-label text-on-surface-variant hover:text-primary transition-colors rounded" data-path="property-management" href="property-management.html">Management</a>
+      <a class="px-3 py-2 text-label text-on-surface-variant hover:text-primary transition-colors rounded" data-path="about" href="about.html">About</a>
+      <a class="px-3 py-2 text-label text-on-surface-variant hover:text-primary transition-colors rounded" data-path="contact" href="contact.html">Contact</a>
+    </nav>
+
+    <div class="flex items-center gap-2">
+      <a data-path="valuation" href="valuation.html" class="hidden sm:inline-flex btn btn-primary btn-sm">Request a Valuation</a>
+      <a href="contact.html" aria-label="Contact" class="w-8 h-8 rounded-full border border-border-hairline flex items-center justify-center text-slate-muted hover:text-primary hover:border-border-strong transition-colors">
+        <span class="material-symbols-outlined text-[16px]">person</span>
+      </a>
+      <button id="mobile-menu-btn" type="button" class="xl:hidden w-8 h-8 rounded border border-border-hairline flex items-center justify-center text-slate-muted hover:text-primary hover:border-border-strong transition-colors" aria-controls="mobile-menu" aria-expanded="false" aria-label="Open menu">
+        <span class="material-symbols-outlined text-[18px]" data-menu-icon>menu</span>
+      </button>
+    </div>
+  </div>
+
+  <div id="mobile-menu" class="hidden xl:hidden border-t border-border-hairline bg-surface">
+    <nav class="max-w-site mx-auto px-6 py-4 flex flex-col" data-active-classes="text-primary">
+      <a class="py-2.5 text-label text-on-surface-variant hover:text-primary transition-colors border-b border-border-hairline" data-path="home" href="index.html">Home</a>
+      <a class="py-2.5 text-label text-on-surface-variant hover:text-primary transition-colors border-b border-border-hairline" data-path="buy" href="buy.html">Buy</a>
+      <a class="py-2.5 text-label text-on-surface-variant hover:text-primary transition-colors border-b border-border-hairline" data-path="rent" href="rent.html">Rent</a>
+      <a class="py-2.5 text-label text-on-surface-variant hover:text-primary transition-colors border-b border-border-hairline" data-path="sell" href="sell.html">Sell</a>
+      <a class="py-2.5 text-label text-on-surface-variant hover:text-primary transition-colors border-b border-border-hairline" data-path="let" href="let.html">Let</a>
+      <a class="py-2.5 text-label text-on-surface-variant hover:text-primary transition-colors border-b border-border-hairline" data-path="property-management" href="property-management.html">Property Management</a>
+      <a class="py-2.5 text-label text-on-surface-variant hover:text-primary transition-colors border-b border-border-hairline" data-path="about" href="about.html">About</a>
+      <a class="py-2.5 text-label text-on-surface-variant hover:text-primary transition-colors border-b border-border-hairline" data-path="contact" href="contact.html">Contact</a>
+      <a class="py-2.5 text-label text-on-surface-variant hover:text-primary transition-colors" data-path="area-guides" href="area-guides.html">Area Guides</a>
+      <div class="flex flex-col gap-2 pt-4">
+        <a class="btn btn-primary w-full" href="valuation.html">Request a Valuation</a>
+        <a class="btn btn-secondary w-full" href="tel:02087418485">
+          <span class="material-symbols-outlined text-[15px]">call</span> 020 8741 8485
+        </a>
+      </div>
+    </nav>
+  </div>
+</header>
+
+<main class="w-full pt-[64px] bg-surface min-h-[calc(100vh-28rem)]">
+<div class="flex flex-col w-full">
+
+  <!-- ================= PAGE HEADER ================= -->
+  <section class="relative w-full bg-primary text-white border-b border-border-hairline overflow-hidden">
+    <div class="absolute inset-0 z-0 opacity-20">
+      <div class="bg-cover bg-center w-full h-full" style="background-image: url('https://lh3.googleusercontent.com/aida-public/AB6AXuCCTmFzBF8QiAvpnTFG0wsRyjpERybny7nKWE9vLrvem0QmRtU0MlZEK_UKkiq0SShqIBt4YsSN8Xzg8_KpIyp_X_CSLeK7xHvrCBwKsxsI_vqnF6cLew1LdfvIX7xEeoqi6I07cHQluCibFGhkXHsqWAqcCHwAj3TCkkibWVMousMXNWwWC6LLEwKSSzoMqKsOXH61CtgugtB17H7-GXBEl3o1VlppbeHKrb4BkxWOVxDgU7me1m2g')"></div>
+      <div class="absolute inset-0 bg-gradient-to-b from-primary/40 via-primary/60 to-primary"></div>
+    </div>
+    <div class="relative z-10 max-w-site mx-auto px-6 md:px-8 py-16 md:py-24 lg:py-32">
+      <div class="max-w-2xl">
+        <div class="text-caps text-white/60 uppercase mb-3">Hyper-Local Coverage</div>
+        <h1 class="font-serif text-hero-sm md:text-[48px] leading-[1.1] tracking-tight text-white">
+          West London Neighbourhoods
+        </h1>
+        <p class="text-lead text-white/75 mt-5">
+          Discover the unique character, transport links, and property markets of the areas we know best.
+        </p>
+      </div>
+    </div>
+  </section>
+
+  <!-- ================= DIRECTORY GRID ================= -->
+  <section class="max-w-site mx-auto px-6 md:px-8 py-16 md:py-24 w-full">
+    <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+
+      <!-- Hammersmith -->
+      <a href="hammersmith.html" class="group bg-white border border-border-hairline rounded-lg overflow-hidden hover:border-border-strong hover:shadow-sm transition-all duration-200 flex flex-col">
+        <div class="aspect-[16/10] overflow-hidden bg-surface-low relative">
+          <div class="bg-cover bg-center w-full h-full group-hover:scale-[1.03] transition-transform duration-500 ease-out" role="img" aria-label="Hammersmith Suspension Bridge"
+               style="background-image: url('https://lh3.googleusercontent.com/aida-public/AB6AXuCCTmFzBF8QiAvpnTFG0wsRyjpERybny7nKWE9vLrvem0QmRtU0MlZEK_UKkiq0SShqIBt4YsSN8Xzg8_KpIyp_X_CSLeK7xHvrCBwKsxsI_vqnF6cLew1LdfvIX7xEeoqi6I07cHQluCibFGhkXHsqWAqcCHwAj3TCkkibWVMousMXNWwWC6LLEwKSSzoMqKsOXH61CtgugtB17H7-GXBEl3o1VlppbeHKrb4BkxWOVxDgU7me1m2g')"></div>
+        </div>
+        <div class="p-6 flex-1 flex flex-col">
+          <div class="text-caps text-mulberry-vivid uppercase mb-2">W6</div>
+          <h3 class="font-serif text-[22px] text-primary mb-2">Hammersmith</h3>
+          <p class="text-small text-on-surface-variant leading-relaxed mb-6">
+            Riverside walks, Victorian terraces and unrivalled Piccadilly & District line connectivity. A bustling hub with a village feel.
+          </p>
+          <div class="mt-auto inline-flex items-center gap-1.5 text-meta font-semibold text-primary group-hover:gap-2.5 transition-all uppercase tracking-wider">
+            Read guide
+            <span class="material-symbols-outlined text-[14px]">arrow_forward</span>
+          </div>
+        </div>
+      </a>
+
+      <!-- Chiswick -->
+      <a href="chiswick.html" class="group bg-white border border-border-hairline rounded-lg overflow-hidden hover:border-border-strong hover:shadow-sm transition-all duration-200 flex flex-col">
+        <div class="aspect-[16/10] overflow-hidden bg-surface-low relative">
+          <div class="bg-cover bg-center w-full h-full group-hover:scale-[1.03] transition-transform duration-500 ease-out" role="img" aria-label="Chiswick High Road"
+               style="background-image: url('https://lh3.googleusercontent.com/aida-public/AB6AXuCRAP3qpvvyKM2j0v93G3qHkbR6C31im0WbR4lbvslmpqeBnrhTQIjetLvZljMmk7eT2ewdKFddT4swgXc2Z5NZNLy0B09WuaxRQ3cY0kXT4RZ0N6b_CIWazgIwKE638wrB37oObWS7KrIqXqVd8A8RjKx-oBSuufQMSjKedRuTUkVtBPhwX2IMGlp90Ckx466vOsn0QxQO8ASPunQyrf9H4WB8Ryg1H6emle7H19zLDNUu3SP47y-E')"></div>
+        </div>
+        <div class="p-6 flex-1 flex flex-col">
+          <div class="text-caps text-mulberry-vivid uppercase mb-2">W4</div>
+          <h3 class="font-serif text-[22px] text-primary mb-2">Chiswick</h3>
+          <p class="text-small text-on-surface-variant leading-relaxed mb-6">
+            Leafy avenues, village charm, boutique High Road dining and outstanding prep schools. A favourite for families.
+          </p>
+          <div class="mt-auto inline-flex items-center gap-1.5 text-meta font-semibold text-primary group-hover:gap-2.5 transition-all uppercase tracking-wider">
+            Read guide
+            <span class="material-symbols-outlined text-[14px]">arrow_forward</span>
+          </div>
+        </div>
+      </a>
+
+      <!-- Fulham -->
+      <a href="fulham.html" class="group bg-white border border-border-hairline rounded-lg overflow-hidden hover:border-border-strong hover:shadow-sm transition-all duration-200 flex flex-col">
+        <div class="aspect-[16/10] overflow-hidden bg-surface-low relative">
+          <div class="bg-cover bg-center w-full h-full group-hover:scale-[1.03] transition-transform duration-500 ease-out" role="img" aria-label="Fulham lion houses"
+               style="background-image: url('https://lh3.googleusercontent.com/aida-public/AB6AXuA7DzmayBLVL7FaeQ4IwIshe1qywYGKBtJ3eVL-gpJFPEn3c1eEZQC1HCOfu9lxa0-4G5RZJ6lpc9Qjb6vu067WOV9fj-TaXGY8GH53TlBI4jlgZwEKpuHrxvL63aTZyBZEX7GhMI1kSHdUIfFh3lmjcg9iG9zYsLAc_dlb7_mqmMBeoKJuD0L3BBq2snMLrTnTN8tRUl521IPwgL8EgMggBUrWlQLE77WUOMKHOUTUbk-enr6ECFoi')"></div>
+        </div>
+        <div class="p-6 flex-1 flex flex-col">
+          <div class="text-caps text-mulberry-vivid uppercase mb-2">SW6</div>
+          <h3 class="font-serif text-[22px] text-primary mb-2">Fulham</h3>
+          <p class="text-small text-on-surface-variant leading-relaxed mb-6">
+            Lion houses, Hurlingham, vibrant parks and quintessential family homes near Parsons Green.
+          </p>
+          <div class="mt-auto inline-flex items-center gap-1.5 text-meta font-semibold text-primary group-hover:gap-2.5 transition-all uppercase tracking-wider">
+            Read guide
+            <span class="material-symbols-outlined text-[14px]">arrow_forward</span>
+          </div>
+        </div>
+      </a>
+
+      <!-- Brook Green -->
+      <a href="brook-green.html" class="group bg-white border border-border-hairline rounded-lg overflow-hidden hover:border-border-strong hover:shadow-sm transition-all duration-200 flex flex-col">
+        <div class="aspect-[16/10] overflow-hidden bg-surface-low relative">
+          <div class="bg-cover bg-center w-full h-full group-hover:scale-[1.03] transition-transform duration-500 ease-out" role="img" aria-label="Brook Green"
+               style="background-image: url('https://lh3.googleusercontent.com/aida-public/AB6AXuDZi3a5lR4yws444KOj4POpVNW_pJDQ1XVXdsWDVSpwYroFUoG7fPBSo_8QC7JVLmNVNzldoiOHF1GOG5F97FZ3EFHHn10FnTcKo5JvsxZpO1VnxP7p3h75wOxLJIcGJihtvWgMIXjDXZAvAf8ZjkI6EMRewAdkEGRg1em78SIyQpW6hgDTeUbbStrIqLMH-ex1_Cbvr_Nwb7k3xvdVEu8l5xj5ElAZ-8TqmqC5c-PIaJ7vGmrUp1BS')"></div>
+        </div>
+        <div class="p-6 flex-1 flex flex-col">
+          <div class="text-caps text-mulberry-vivid uppercase mb-2">W14</div>
+          <h3 class="font-serif text-[22px] text-primary mb-2">Brook Green</h3>
+          <p class="text-small text-on-surface-variant leading-relaxed mb-6">
+            Stunning tennis greens, Edwardian mansions and close proximity to Kensington.
+          </p>
+          <div class="mt-auto inline-flex items-center gap-1.5 text-meta font-semibold text-primary group-hover:gap-2.5 transition-all uppercase tracking-wider">
+            Read guide
+            <span class="material-symbols-outlined text-[14px]">arrow_forward</span>
+          </div>
+        </div>
+      </a>
+
+      <!-- Shepherds Bush -->
+      <a href="shepherds-bush.html" class="group bg-white border border-border-hairline rounded-lg overflow-hidden hover:border-border-strong hover:shadow-sm transition-all duration-200 flex flex-col">
+        <div class="aspect-[16/10] overflow-hidden bg-surface-low relative">
+          <div class="bg-cover bg-center w-full h-full group-hover:scale-[1.03] transition-transform duration-500 ease-out" role="img" aria-label="Shepherds Bush green"
+               style="background-image: url('https://lh3.googleusercontent.com/aida-public/AB6AXuDZi3a5lR4yws444KOj4POpVNW_pJDQ1XVXdsWDVSpwYroFUoG7fPBSo_8QC7JVLmNVNzldoiOHF1GOG5F97FZ3EFHHn10FnTcKo5JvsxZpO1VnxP7p3h75wOxLJIcGJihtvWgMIXjDXZAvAf8ZjkI6EMRewAdkEGRg1em78SIyQpW6hgDTeUbbStrIqLMH-ex1_Cbvr_Nwb7k3xvdVEu8l5xj5ElAZ-8TqmqC5c-PIaJ7vGmrUp1BS')"></div>
+        </div>
+        <div class="p-6 flex-1 flex flex-col">
+          <div class="text-caps text-mulberry-vivid uppercase mb-2">W12</div>
+          <h3 class="font-serif text-[22px] text-primary mb-2">Shepherds Bush</h3>
+          <p class="text-small text-on-surface-variant leading-relaxed mb-6">
+            Westfield, the Green and excellent Central & Overground links into the City.
+          </p>
+          <div class="mt-auto inline-flex items-center gap-1.5 text-meta font-semibold text-primary group-hover:gap-2.5 transition-all uppercase tracking-wider">
+            Read guide
+            <span class="material-symbols-outlined text-[14px]">arrow_forward</span>
+          </div>
+        </div>
+      </a>
+
+      <!-- Ealing & Acton -->
+      <a href="ealing-acton.html" class="group bg-white border border-border-hairline rounded-lg overflow-hidden hover:border-border-strong hover:shadow-sm transition-all duration-200 flex flex-col">
+        <div class="aspect-[16/10] overflow-hidden bg-surface-low relative">
+          <div class="bg-cover bg-center w-full h-full group-hover:scale-[1.03] transition-transform duration-500 ease-out" role="img" aria-label="Ealing Edwardian houses"
+               style="background-image: url('https://lh3.googleusercontent.com/aida-public/AB6AXuBLTo8P4aUKZk7ePuEQlGgL4le_yJMFa1r96FlMoBBHzZN24Ky22JCxKHN9sXW-lRCLlCB_NJExsWwLYnMr6sTgr8Jz8RjnYz1bEajnnmLa06TF59AjjiNcmyC2aSrGl7CwesSf7Zq70umTOV98P9tOrnPBjjJl6mZlTquB7Q1hFJrJ70lyIs3Omcik83dO1r2uMDVC4pIAtR7oI8Wk_T9r4bsjnrmleK1-v41xhRr69ldBVWXZg-EP')"></div>
+        </div>
+        <div class="p-6 flex-1 flex flex-col">
+          <div class="text-caps text-mulberry-vivid uppercase mb-2">W5 / W3</div>
+          <h3 class="font-serif text-[22px] text-primary mb-2">Ealing & Acton</h3>
+          <p class="text-small text-on-surface-variant leading-relaxed mb-6">
+            Spacious garden properties, rapid Elizabeth Line commuting and leafy parks.
+          </p>
+          <div class="mt-auto inline-flex items-center gap-1.5 text-meta font-semibold text-primary group-hover:gap-2.5 transition-all uppercase tracking-wider">
+            Read guide
+            <span class="material-symbols-outlined text-[14px]">arrow_forward</span>
+          </div>
+        </div>
+      </a>
+
+    </div>
+  </section>
+
+  <!-- ================= CTA ================= -->
+  <section class="w-full bg-primary text-white py-16 md:py-24">
+    <div class="max-w-3xl mx-auto px-6 md:px-8 text-center">
+      <div class="text-caps text-white/50 uppercase mb-4">Start The Conversation</div>
+      <h2 class="font-serif text-h1-sm md:text-h1 text-white">
+        Not sure which area is right for you?
+      </h2>
+      <p class="text-lead text-white/65 mt-5">
+        Our team knows West London inside out. Get in touch to discuss your requirements and we can recommend the perfect neighbourhood.
+      </p>
+      <div class="flex flex-wrap items-center justify-center gap-3 mt-8">
+        <a class="btn bg-white text-primary hover:bg-surface-low btn-lg" href="contact.html">Speak to an expert</a>
+      </div>
+    </div>
+  </section>
+
+</div>
+</main>
+
+<!-- ================= FOOTER ================= -->
+<footer class="w-full bg-surface border-t border-border-hairline text-on-surface-variant">
+  <div class="max-w-site mx-auto px-6 md:px-8 pt-14 pb-8">
+    <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-5 gap-10 lg:gap-12 mb-12">
+
+      <div class="lg:col-span-2">
+        <div class="flex items-center gap-2.5 mb-4">
+          <img alt="" class="h-6 w-auto object-contain" src="https://lh3.googleusercontent.com/aida/AEtjO1XJhx9kwFdPEgMI_74g2NRFjMQEM8tG_2yJMOhCAJuD38YbIXtYfxGv6xo5WWM49Gb6dkHNJzDt6jMplhyFW0nd3Q0mvOmpoAWphpHtKIztcDYHPE81UYiUSA_a1ILIp2uvKJ55mp8LRpJDrb2z346gzrofjPdlpncWr4jribr2GU0-udpC4LvL30gizTBz79Som_ExLrizAThD7PxEgbynz8hPem4Grxn3DhuVjlTixn-uJvmRhHCzY9Y" />
+          <span class="font-serif text-[17px] text-primary">London Estates</span>
+        </div>
+        <p class="text-small text-on-surface-variant max-w-sm leading-relaxed">
+          Established boutique estate agency providing bespoke sales, lettings and asset management throughout West London. Prime expertise anchored in Hammersmith, Chiswick, Brook Green and Fulham.
+        </p>
+        <div class="text-small space-y-1 text-slate-muted mt-5">
+          <div class="text-caps text-slate-muted uppercase mb-2">Head Office</div>
+          <p>Challenge Services Ltd T/A London Estates</p>
+          <p>61 Dalling Road, Hammersmith, London W6 0JD</p>
+          <p class="pt-2">
+            <span class="text-on-surface font-medium">020 8741 8485</span>
+            <span class="mx-2 text-border-strong">·</span>
+            <a href="mailto:office@londonestates.net" class="hover:text-primary transition-colors">office@londonestates.net</a>
+          </p>
+        </div>
+      </div>
+
+      <div>
+        <div class="text-caps text-primary uppercase mb-4">Services</div>
+        <ul class="space-y-2.5 text-small">
+          <li><a class="text-on-surface-variant hover:text-primary transition-colors" data-path="buy" href="buy.html">Residential Sales</a></li>
+          <li><a class="text-on-surface-variant hover:text-primary transition-colors" data-path="rent" href="rent.html">Lettings Portfolio</a></li>
+          <li><a class="text-on-surface-variant hover:text-primary transition-colors" data-path="property-management" href="property-management.html">Property Management</a></li>
+          <li><a class="text-on-surface-variant hover:text-primary transition-colors" data-path="sell" href="sell.html">Market Valuations</a></li>
+          <li><a class="text-on-surface-variant hover:text-primary transition-colors" data-path="let" href="let.html">Landlord Advisory</a></li>
+          <li><a class="text-on-surface-variant hover:text-primary transition-colors" data-path="valuation" href="valuation.html">Instant Valuation</a></li>
+        </ul>
+      </div>
+
+      <div>
+        <div class="text-caps text-primary uppercase mb-4">Area Guides</div>
+        <ul class="space-y-2.5 text-small">
+          <li><a class="text-on-surface-variant hover:text-primary transition-colors" data-path="hammersmith-guide" href="hammersmith.html">Hammersmith W6</a></li>
+          <li><a class="text-on-surface-variant hover:text-primary transition-colors" data-path="chiswick-guide" href="chiswick.html">Chiswick W4</a></li>
+          <li><a class="text-on-surface-variant hover:text-primary transition-colors" data-path="fulham-guide" href="fulham.html">Fulham SW6</a></li>
+          <li><a class="text-on-surface-variant hover:text-primary transition-colors" data-path="brook-green-guide" href="brook-green.html">Brook Green W14</a></li>
+          <li><a class="text-on-surface-variant hover:text-primary transition-colors" data-path="shepherds-bush-guide" href="shepherds-bush.html">Shepherds Bush W12</a></li>
+          <li><a class="text-on-surface-variant hover:text-primary transition-colors" data-path="ealing-acton-guide" href="ealing-acton.html">Ealing &amp; Acton W5/W3</a></li>
+        </ul>
+      </div>
+
+      <div>
+        <div class="text-caps text-primary uppercase mb-4">Company</div>
+        <ul class="space-y-2.5 text-small mb-5">
+          <li><a class="text-on-surface-variant hover:text-primary transition-colors" data-path="about" href="about.html">About Us</a></li>
+          <li><a class="text-on-surface-variant hover:text-primary transition-colors" data-path="contact" href="contact.html">Contact</a></li>
+          <li><a class="text-on-surface-variant hover:text-primary transition-colors" data-path="area-guides" href="area-guides.html">All Area Guides</a></li>
+          <li><a class="text-on-surface-variant hover:text-primary transition-colors" data-path="privacy-policy" href="privacy-policy.html">Privacy Policy</a></li>
+          <li><a class="text-on-surface-variant hover:text-primary transition-colors" data-path="terms-of-business" href="terms-of-business.html">Terms of Business</a></li>
+        </ul>
+        <div class="border border-border-hairline rounded p-3 text-meta text-slate-muted space-y-1">
+          <div class="text-on-surface font-semibold mb-1">Accreditations</div>
+          <div>SafeAgent A140</div>
+          <div>Property Ombudsman N02559</div>
+          <div>CMP Protected Client Money</div>
+        </div>
+      </div>
+    </div>
+
+    <div class="pt-6 border-t border-border-hairline">
+      <div class="flex flex-col md:flex-row items-start md:items-center justify-between gap-3 text-meta text-slate-muted">
+        <div class="flex flex-wrap items-center gap-x-5 gap-y-1">
+          <span>Challenge Services Ltd · Co. Reg. 02987418</span>
+          <span>VAT 714478917</span>
+          <span>Registered Office: 61 Dalling Road, London W6 0JD</span>
+        </div>
+        <div>© 2026 London Estates. All rights reserved.</div>
+      </div>
+    </div>
+  </div>
+</footer>
+
+<!-- ================= SCRIPTS ================= -->
+<script>
+(function () {
+  'use strict';
+
+  var PAGE = document.body.dataset.page || 'area-guides';
+
+  function markActive() {
+    Array.prototype.forEach.call(document.querySelectorAll('[data-path]'), function (link) {
+      if (link.getAttribute('data-path') !== PAGE) return;
+      var scope = link.closest('[data-active-classes]');
+      var classes = scope ? scope.getAttribute('data-active-classes') : '';
+      if (classes) classes.split(/\s+/).forEach(function (c) { if (c) link.classList.add(c); });
+      link.setAttribute('aria-current', 'page');
+    });
+  }
+
+  function initMobileMenu() {
+    var btn = document.getElementById('mobile-menu-btn');
+    var menu = document.getElementById('mobile-menu');
+    if (!btn || !menu) return;
+    btn.addEventListener('click', function () {
+      var isOpen = menu.classList.toggle('hidden') === false;
+      btn.setAttribute('aria-expanded', String(isOpen));
+      var icon = btn.querySelector('[data-menu-icon]');
+      if (icon) icon.textContent = isOpen ? 'close' : 'menu';
+    });
+  }
+
+  document.addEventListener('DOMContentLoaded', function () {
+    markActive();
+    initMobileMenu();
+  });
+})();
+</script>
+
+</body>
+  </html>
