@@ -1,0 +1,775 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<meta content="web_standard" name="shell-type"/>
+<title>Properties To Rent | London Estates</title>
+<meta name="description" content="Browse residential properties to rent across Hammersmith, Chiswick, Fulham and West London. Boutique letting agents with local expertise."/>
+<meta property="og:title" content="Properties To Rent | London Estates"/>
+<meta property="og:description" content="Browse residential properties to rent across Hammersmith, Chiswick, Fulham and West London."/>
+<meta property="og:type" content="website"/>
+
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@24,400,0,0" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,500;0,600;0,700;1,400;1,500&amp;family=Plus+Jakarta+Sans:wght@400;500;600;700&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+
+<style>
+@layer base {
+  html { scroll-behavior: smooth; }
+  body { margin: 0; padding: 0; overscroll-behavior: none; }
+  ::-webkit-scrollbar { display: none; }
+  main > :first-child { margin-top: 0 !important; }
+  main > :last-child { margin-bottom: 0 !important; }
+  [id] { scroll-margin-top: 6.5rem; }
+  * { -webkit-tap-highlight-color: transparent; }
+}
+
+/* ---- Component primitives ---- */
+.btn {
+  display: inline-flex; align-items: center; justify-content: center; gap: 0.5rem;
+  height: 2.5rem; padding: 0 1rem;
+  font-family: inherit; font-size: 0.8125rem; font-weight: 500; letter-spacing: 0.01em;
+  border-radius: 6px; border: 1px solid transparent;
+  transition: background-color 150ms ease, border-color 150ms ease, color 150ms ease, box-shadow 150ms ease;
+  cursor: pointer; white-space: nowrap; text-decoration: none;
+}
+.btn:focus-visible { outline: none; box-shadow: 0 0 0 2px #fbf9f5, 0 0 0 4px rgba(66,5,49,0.28); }
+.btn-primary { background-color: #420531; color: #fff; }
+.btn-primary:hover { background-color: #5c1d48; }
+.btn-secondary { background-color: #ffffff; color: #420531; border-color: #E7E2D8; }
+.btn-secondary:hover { border-color: #d5c1ca; }
+.btn-ghost { background: transparent; color: #51434a; }
+.btn-ghost:hover { color: #1b1c1a; background-color: #f5f3ef; }
+.btn-outline-light { background: transparent; color: #fff; border-color: rgba(255,255,255,0.22); }
+.btn-outline-light:hover { background: rgba(255,255,255,0.06); border-color: rgba(255,255,255,0.32); }
+.btn-ghost-light { background: transparent; color: rgba(255,255,255,0.7); }
+.btn-ghost-light:hover { color: #fff; background-color: rgba(255,255,255,0.06); }
+.btn-sm { height: 2.25rem; padding: 0 0.75rem; font-size: 0.75rem; }
+.btn-lg { height: 2.75rem; padding: 0 1.25rem; font-size: 0.875rem; }
+
+.input {
+  display: block; width: 100%; height: 2.625rem; padding: 0 0.875rem;
+  font-family: inherit; font-size: 0.8125rem; color: #1b1c1a;
+  background-color: #ffffff; border: 1px solid #E7E2D8; border-radius: 6px;
+  transition: border-color 150ms ease, box-shadow 150ms ease;
+  appearance: none; -webkit-appearance: none;
+  background-image: url("data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' width='12' height='12' viewBox='0 0 12 12'><path d='M2 4l4 4 4-4' stroke='%23525A62' stroke-width='1.4' fill='none' stroke-linecap='round' stroke-linejoin='round'/></svg>");
+  background-repeat: no-repeat;
+  background-position: right 0.75rem center;
+  background-size: 12px;
+  padding-right: 2rem;
+}
+.input:hover { border-color: #d5c1ca; }
+.input:focus { outline: none; border-color: #420531; box-shadow: 0 0 0 3px rgba(66,5,49,0.08); }
+.input-icon { padding-left: 2.25rem; }
+
+.chip {
+  display: inline-flex; align-items: center; gap: 0.375rem;
+  height: 1.875rem; padding: 0 0.75rem;
+  font-family: inherit; font-size: 0.75rem; font-weight: 500;
+  color: #51434a; background-color: #ffffff;
+  border: 1px solid #E7E2D8; border-radius: 4px;
+  transition: border-color 150ms ease, color 150ms ease, background-color 150ms ease;
+  cursor: pointer; white-space: nowrap;
+}
+.chip:hover { border-color: #d5c1ca; color: #1b1c1a; }
+.chip:focus-visible { outline: none; box-shadow: 0 0 0 2px #fbf9f5, 0 0 0 4px rgba(66,5,49,0.25); }
+
+.badge {
+  display: inline-flex; align-items: center;
+  padding: 0.25rem 0.5rem; border-radius: 4px;
+  font-size: 0.625rem; font-weight: 600; line-height: 1;
+  letter-spacing: 0.06em; text-transform: uppercase;
+}
+
+.search-toggle { display: inline-flex; background-color: #f5f3ef; padding: 4px; border-radius: 8px; gap: 2px; }
+.search-toggle button {
+  padding: 0.375rem 1rem; font-family: inherit; font-size: 0.75rem; font-weight: 500;
+  border-radius: 5px; transition: all 150ms ease; border: none; background: transparent; cursor: pointer;
+}
+.search-toggle button:focus-visible { outline: none; box-shadow: 0 0 0 2px rgba(66,5,49,0.25); }
+.search-toggle button.active { background-color: #ffffff; color: #420531; box-shadow: 0 1px 2px rgba(0,0,0,0.06); font-weight: 600; }
+.search-toggle button.inactive { color: #525A62; }
+.search-toggle button.inactive:hover { color: #1b1c1a; }
+</style>
+
+<script src="https://cdn.tailwindcss.com"></script>
+<script id="tailwind-config">
+tailwind.config = {
+  darkMode: "class",
+  theme: {
+    extend: {
+      colors: {
+        primary: '#420531',
+        'primary-hover': '#5c1d48',
+        'mulberry-deep': '#2a0517',
+        'mulberry-vivid': '#73255B',
+        surface: '#fbf9f5',
+        'surface-raised': '#ffffff',
+        'surface-low': '#f5f3ef',
+        'surface-muted': '#efeeea',
+        'linen-warm': '#F3EFE6',
+        'on-surface': '#1b1c1a',
+        'on-surface-variant': '#51434a',
+        'slate-muted': '#525A62',
+        'border-hairline': '#E7E2D8',
+        'border-strong': '#d5c1ca',
+        'status-available': '#2E6B4F',
+        'status-sold': '#933C40',
+        'status-let': '#2a0517',
+        'plum-charcoal': '#1a0a13'
+      },
+      fontFamily: {
+        sans: ['"Plus Jakarta Sans"', 'ui-sans-serif', 'system-ui', 'sans-serif'],
+        serif: ['"Playfair Display"', 'ui-serif', 'Georgia', 'serif']
+      },
+      fontSize: {
+        hero: ['52px', { lineHeight: '1.05', letterSpacing: '-0.025em', fontWeight: '600' }],
+        'hero-sm': ['34px', { lineHeight: '1.1', letterSpacing: '-0.02em', fontWeight: '600' }],
+        h1: ['36px', { lineHeight: '1.15', letterSpacing: '-0.02em', fontWeight: '500' }],
+        'h1-sm': ['28px', { lineHeight: '1.2', letterSpacing: '-0.015em', fontWeight: '500' }],
+        h2: ['24px', { lineHeight: '1.25', letterSpacing: '-0.015em', fontWeight: '500' }],
+        h3: ['16px', { lineHeight: '1.4', letterSpacing: '-0.005em', fontWeight: '600' }],
+        lead: ['17px', { lineHeight: '1.6', fontWeight: '400' }],
+        body: ['14.5px', { lineHeight: '1.6', fontWeight: '400' }],
+        small: ['13px', { lineHeight: '1.55', fontWeight: '400' }],
+        label: ['13px', { lineHeight: '1.4', fontWeight: '500' }],
+        caps: ['10.5px', { lineHeight: '1.2', letterSpacing: '0.09em', fontWeight: '600' }],
+        meta: ['11.5px', { lineHeight: '1.4', letterSpacing: '0.01em', fontWeight: '500' }],
+        price: ['20px', { lineHeight: '1.2', letterSpacing: '-0.01em', fontWeight: '600' }]
+      },
+      borderRadius: { sm: '4px', DEFAULT: '6px', md: '6px', lg: '8px' },
+      boxShadow: {
+        xs: '0 1px 2px 0 rgb(0 0 0 / 0.04)',
+        sm: '0 1px 3px 0 rgb(0 0 0 / 0.06), 0 1px 2px -1px rgb(0 0 0 / 0.04)',
+        md: '0 4px 12px -2px rgb(0 0 0 / 0.06), 0 2px 4px -2px rgb(0 0 0 / 0.04)'
+      },
+      maxWidth: { site: '1240px' }
+    }
+  }
+};
+</script>
+</head>
+
+<body class="bg-surface font-sans text-body text-on-surface antialiased" data-page="rent">
+
+<!-- ================= HEADER ================= -->
+<header class="fixed top-0 w-full z-50 bg-surface border-b border-border-hairline">
+  <div class="h-16 max-w-site mx-auto px-6 md:px-8 flex items-center justify-between gap-6">
+    <a href="index.html" data-path="home" class="flex items-center gap-3 shrink-0">
+      <img alt="" class="h-7 w-auto object-contain" src="https://lh3.googleusercontent.com/aida/AEtjO1XJhx9kwFdPEgMI_74g2NRFjMQEM8tG_2yJMOhCAJuD38YbIXtYfxGv6xo5WWM49Gb6dkHNJzDt6jMplhyFW0nd3Q0mvOmpoAWphpHtKIztcDYHPE81UYiUSA_a1ILIp2uvKJ55mp8LRpJDrb2z346gzrofjPdlpncWr4jribr2GU0-udpC4LvL30gizTBz79Som_ExLrizAThD7PxEgbynz8hPem4Grxn3DhuVjlTixn-uJvmRhHCzY9Y" />
+      <div class="flex flex-col leading-none">
+        <span class="font-serif text-[17px] text-primary tracking-tight">London Estates</span>
+      </div>
+    </a>
+
+    <nav class="hidden xl:flex items-center gap-1" data-active-classes="text-primary">
+      <a class="px-3 py-2 text-label text-on-surface-variant hover:text-primary transition-colors rounded" data-path="buy" href="buy.html">Buy</a>
+      <a class="px-3 py-2 text-label text-on-surface-variant hover:text-primary transition-colors rounded" data-path="rent" href="rent.html">Rent</a>
+      <a class="px-3 py-2 text-label text-on-surface-variant hover:text-primary transition-colors rounded" data-path="sell" href="sell.html">Sell</a>
+      <a class="px-3 py-2 text-label text-on-surface-variant hover:text-primary transition-colors rounded" data-path="let" href="let.html">Let</a>
+      <a class="px-3 py-2 text-label text-on-surface-variant hover:text-primary transition-colors rounded" data-path="property-management" href="property-management.html">Management</a>
+      <a class="px-3 py-2 text-label text-on-surface-variant hover:text-primary transition-colors rounded" data-path="about" href="about.html">About</a>
+      <a class="px-3 py-2 text-label text-on-surface-variant hover:text-primary transition-colors rounded" data-path="contact" href="contact.html">Contact</a>
+    </nav>
+
+    <div class="flex items-center gap-2">
+      <a data-path="valuation" href="valuation.html" class="hidden sm:inline-flex btn btn-primary btn-sm">Request a Valuation</a>
+      <a href="contact.html" aria-label="Contact" class="w-8 h-8 rounded-full border border-border-hairline flex items-center justify-center text-slate-muted hover:text-primary hover:border-border-strong transition-colors">
+        <span class="material-symbols-outlined text-[16px]">person</span>
+      </a>
+      <button id="mobile-menu-btn" type="button" class="xl:hidden w-8 h-8 rounded border border-border-hairline flex items-center justify-center text-slate-muted hover:text-primary hover:border-border-strong transition-colors" aria-controls="mobile-menu" aria-expanded="false" aria-label="Open menu">
+        <span class="material-symbols-outlined text-[18px]" data-menu-icon>menu</span>
+      </button>
+    </div>
+  </div>
+
+  <div id="mobile-menu" class="hidden xl:hidden border-t border-border-hairline bg-surface">
+    <nav class="max-w-site mx-auto px-6 py-4 flex flex-col" data-active-classes="text-primary">
+      <a class="py-2.5 text-label text-on-surface-variant hover:text-primary transition-colors border-b border-border-hairline" data-path="home" href="index.html">Home</a>
+      <a class="py-2.5 text-label text-on-surface-variant hover:text-primary transition-colors border-b border-border-hairline" data-path="buy" href="buy.html">Buy</a>
+      <a class="py-2.5 text-label text-on-surface-variant hover:text-primary transition-colors border-b border-border-hairline" data-path="rent" href="rent.html">Rent</a>
+      <a class="py-2.5 text-label text-on-surface-variant hover:text-primary transition-colors border-b border-border-hairline" data-path="sell" href="sell.html">Sell</a>
+      <a class="py-2.5 text-label text-on-surface-variant hover:text-primary transition-colors border-b border-border-hairline" data-path="let" href="let.html">Let</a>
+      <a class="py-2.5 text-label text-on-surface-variant hover:text-primary transition-colors border-b border-border-hairline" data-path="property-management" href="property-management.html">Property Management</a>
+      <a class="py-2.5 text-label text-on-surface-variant hover:text-primary transition-colors border-b border-border-hairline" data-path="about" href="about.html">About</a>
+      <a class="py-2.5 text-label text-on-surface-variant hover:text-primary transition-colors border-b border-border-hairline" data-path="contact" href="contact.html">Contact</a>
+      <a class="py-2.5 text-label text-on-surface-variant hover:text-primary transition-colors" data-path="area-guides" href="area-guides.html">Area Guides</a>
+      <div class="flex flex-col gap-2 pt-4">
+        <a class="btn btn-primary w-full" href="valuation.html">Request a Valuation</a>
+        <a class="btn btn-secondary w-full" href="tel:02087418485">
+          <span class="material-symbols-outlined text-[15px]">call</span> 020 8741 8485
+        </a>
+      </div>
+    </nav>
+  </div>
+</header>
+
+<main class="w-full pt-[64px] bg-surface min-h-[calc(100vh-28rem)]">
+<div class="flex flex-col w-full">
+
+  <!-- ================= PAGE HEADER ================= -->
+  <section class="relative w-full bg-primary text-white border-b border-border-hairline overflow-hidden">
+    <div class="absolute inset-0 z-0 opacity-20">
+      <div class="bg-cover bg-center w-full h-full" style="background-image: url('https://lh3.googleusercontent.com/aida-public/AB6AXuC3CkNKV_n0G8eZAjyVb7AkejPpmTlosvJd8lDdfL2xNiIgA8ZE4Y-YK5B3aX2LR3xphFnbOk9TKGuDDfLtuhbj85faTgJuMaW8lMPqX96-Q7f45CatRzjBasTezF2HFBcsSH50AXyiYIL0Pe3RjKDpyTKzw4Hx2BXkx49pQPN1gjMFqRU4I_l3gKv_xL_07suVtVmSheEKxwKDh7bTt0XPqIlHjc9Pe6oyDx4feo8RxWA0N7rwxcYo')"></div>
+      <div class="absolute inset-0 bg-gradient-to-b from-primary/40 via-primary/60 to-primary"></div>
+    </div>
+    <div class="relative z-10 max-w-site mx-auto px-6 md:px-8 py-16 md:py-20">
+      <div class="text-caps text-white/60 uppercase mb-3">Residential Lettings</div>
+      <h1 class="font-serif text-h1-sm md:text-h1 text-white max-w-2xl">Properties to rent across West London.</h1>
+      <p class="text-lead text-white/70 mt-4 max-w-xl">
+        Browse our curated portfolio of houses, maisonettes, and apartments available for rent.
+      </p>
+    </div>
+  </section>
+
+  <!-- ================= SEARCH & FILTER ================= -->
+  <section class="relative z-20 -mt-6 max-w-site mx-auto px-6 md:px-8 w-full">
+    <div class="bg-white border border-border-hairline rounded-lg p-6 md:p-8 shadow-sm">
+
+      <div class="flex flex-col md:flex-row md:items-center justify-between gap-4 mb-6">
+        <div>
+          <div class="text-caps text-mulberry-vivid uppercase mb-1.5">Search Filters</div>
+          <h2 class="font-serif text-h2 text-primary">Find your property.</h2>
+        </div>
+        <div class="search-toggle" role="group" aria-label="Search mode">
+          <button type="button" class="inactive" data-search-mode="buy" aria-pressed="false">Buy</button>
+          <button type="button" class="active" data-search-mode="rent" aria-pressed="true">Rent</button>
+        </div>
+      </div>
+
+      <form id="search-form" class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-5 gap-3">
+        <input type="hidden" name="mode" id="search-mode" value="rent"/>
+
+        <div>
+          <label class="block text-caps text-slate-muted uppercase mb-1.5" for="f-area">Neighbourhood</label>
+          <div class="relative">
+            <span class="material-symbols-outlined absolute left-3 top-1/2 -translate-y-1/2 text-[16px] text-slate-muted pointer-events-none">location_on</span>
+            <select id="f-area" name="area" class="input input-icon">
+              <option value="all">All West London</option>
+              <option value="hammersmith" selected>Hammersmith (W6)</option>
+              <option value="fulham">Fulham (SW6)</option>
+              <option value="chiswick">Chiswick (W4)</option>
+              <option value="brook-green">Brook Green (W14)</option>
+              <option value="shepherds-bush">Shepherds Bush (W12)</option>
+            </select>
+          </div>
+        </div>
+
+        <div>
+          <label class="block text-caps text-slate-muted uppercase mb-1.5" for="price-selector">Price</label>
+          <div class="relative">
+            <span class="material-symbols-outlined absolute left-3 top-1/2 -translate-y-1/2 text-[16px] text-slate-muted pointer-events-none">payments</span>
+            <select id="price-selector" name="price" class="input input-icon">
+              <option value="0-2500">Up to £2,500 pcm</option>
+              <option value="2500-4000">£2,500 – £4,000 pcm</option>
+              <option value="4000-7000">£4,000 – £7,000 pcm</option>
+              <option value="7000-0">£7,000+ pcm</option>
+            </select>
+          </div>
+        </div>
+
+        <div>
+          <label class="block text-caps text-slate-muted uppercase mb-1.5" for="f-beds">Bedrooms</label>
+          <div class="relative">
+            <span class="material-symbols-outlined absolute left-3 top-1/2 -translate-y-1/2 text-[16px] text-slate-muted pointer-events-none">bed</span>
+            <select id="f-beds" name="beds" class="input input-icon">
+              <option value="0">Any</option>
+              <option value="1">1+</option>
+              <option value="2">2+</option>
+              <option value="3">3+</option>
+              <option value="4">4+</option>
+            </select>
+          </div>
+        </div>
+
+        <div>
+          <label class="block text-caps text-slate-muted uppercase mb-1.5" for="f-type">Type</label>
+          <div class="relative">
+            <span class="material-symbols-outlined absolute left-3 top-1/2 -translate-y-1/2 text-[16px] text-slate-muted pointer-events-none">apartment</span>
+            <select id="f-type" name="type" class="input input-icon">
+              <option value="all">Any</option>
+              <option value="house">Period Houses</option>
+              <option value="maisonette">Maisonettes</option>
+              <option value="apartment">Garden Apartments</option>
+              <option value="mews">Mews &amp; Penthouses</option>
+            </select>
+          </div>
+        </div>
+
+        <div class="flex items-end">
+          <button type="submit" class="btn btn-primary w-full">
+            <span class="material-symbols-outlined text-[16px]">search</span>
+            Search
+          </button>
+        </div>
+      </form>
+
+      <div class="flex flex-wrap items-center gap-2 mt-5 pt-5 border-t border-border-hairline">
+        <span class="text-meta text-slate-muted mr-1">Popular:</span>
+        <button type="button" data-quick='{"mode":"rent","area":"fulham","beds":"0","type":"all"}' class="chip">Fulham lettings</button>
+        <button type="button" data-quick='{"mode":"rent","area":"hammersmith","beds":"0","type":"apartment"}' class="chip">Hammersmith apartments</button>
+        <button type="button" data-quick='{"mode":"rent","area":"all","beds":"0","type":"house"}' class="chip">Family houses</button>
+      </div>
+    </div>
+  </section>
+
+  <!-- ================= PROPERTY GRID ================= -->
+  <section class="max-w-site mx-auto px-6 md:px-8 py-16 md:py-24 w-full" id="listing-results">
+    <div class="flex flex-col md:flex-row md:items-end justify-between gap-4 mb-10">
+      <div class="max-w-2xl">
+        <div class="text-caps text-mulberry-vivid uppercase mb-2">To Let</div>
+        <h2 class="font-serif text-h1-sm md:text-h1 text-primary">Properties to rent</h2>
+      </div>
+      <div class="flex items-center gap-3">
+        <span class="text-meta text-slate-muted" id="result-count">Showing all rental properties</span>
+        <button type="button" id="reset-search" class="hidden text-meta text-mulberry-vivid underline underline-offset-2 hover:no-underline">Reset filters</button>
+      </div>
+    </div>
+
+    <!-- Grid container, populated by JS -->
+    <div id="listing-grid" class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+      <noscript>
+        <p class="col-span-full text-body text-slate-muted py-8">Please enable JavaScript to view the property portfolio.</p>
+      </noscript>
+    </div>
+  </section>
+
+  <!-- ================= CLOSING ================= -->
+  <section class="w-full bg-primary text-white py-16 md:py-24">
+    <div class="max-w-3xl mx-auto px-6 md:px-8 text-center">
+      <div class="text-caps text-white/50 uppercase mb-4">Start The Conversation</div>
+      <h2 class="font-serif text-h1-sm md:text-h1 text-white">
+        Looking to rent in West London?
+      </h2>
+      <p class="text-lead text-white/65 mt-5">
+        Register your requirements with us or speak directly with our team today.
+      </p>
+      <div class="flex flex-wrap items-center justify-center gap-3 mt-8">
+        <a class="btn bg-white text-primary hover:bg-surface-low btn-lg" href="contact.html">Register Requirements</a>
+        <a class="btn btn-outline-light btn-lg" href="tel:02087418485">
+          <span class="material-symbols-outlined text-[16px]">call</span>
+          020 8741 8485
+        </a>
+      </div>
+    </div>
+  </section>
+
+</div>
+</main>
+
+<!-- ================= FOOTER ================= -->
+<footer class="w-full bg-surface border-t border-border-hairline text-on-surface-variant">
+  <div class="max-w-site mx-auto px-6 md:px-8 pt-14 pb-8">
+    <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-5 gap-10 lg:gap-12 mb-12">
+      <div class="lg:col-span-2">
+        <div class="flex items-center gap-2.5 mb-4">
+          <img alt="" class="h-6 w-auto object-contain" src="https://lh3.googleusercontent.com/aida/AEtjO1XJhx9kwFdPEgMI_74g2NRFjMQEM8tG_2yJMOhCAJuD38YbIXtYfxGv6xo5WWM49Gb6dkHNJzDt6jMplhyFW0nd3Q0mvOmpoAWphpHtKIztcDYHPE81UYiUSA_a1ILIp2uvKJ55mp8LRpJDrb2z346gzrofjPdlpncWr4jribr2GU0-udpC4LvL30gizTBz79Som_ExLrizAThD7PxEgbynz8hPem4Grxn3DhuVjlTixn-uJvmRhHCzY9Y" />
+          <span class="font-serif text-[17px] text-primary">London Estates</span>
+        </div>
+        <p class="text-small text-on-surface-variant max-w-sm leading-relaxed">
+          Established boutique estate agency providing bespoke sales, lettings and asset management throughout West London. Prime expertise anchored in Hammersmith, Chiswick, Brook Green and Fulham.
+        </p>
+        <div class="text-small space-y-1 text-slate-muted mt-5">
+          <div class="text-caps text-slate-muted uppercase mb-2">Head Office</div>
+          <p>Challenge Services Ltd T/A London Estates</p>
+          <p>61 Dalling Road, Hammersmith, London W6 0JD</p>
+          <p class="pt-2">
+            <span class="text-on-surface font-medium">020 8741 8485</span>
+            <span class="mx-2 text-border-strong">·</span>
+            <a href="mailto:office@londonestates.net" class="hover:text-primary transition-colors">office@londonestates.net</a>
+          </p>
+        </div>
+      </div>
+
+      <div>
+        <div class="text-caps text-primary uppercase mb-4">Services</div>
+        <ul class="space-y-2.5 text-small">
+          <li><a class="text-on-surface-variant hover:text-primary transition-colors" data-path="buy" href="buy.html">Residential Sales</a></li>
+          <li><a class="text-on-surface-variant hover:text-primary transition-colors" data-path="rent" href="rent.html">Lettings Portfolio</a></li>
+          <li><a class="text-on-surface-variant hover:text-primary transition-colors" data-path="property-management" href="property-management.html">Property Management</a></li>
+          <li><a class="text-on-surface-variant hover:text-primary transition-colors" data-path="sell" href="sell.html">Market Valuations</a></li>
+          <li><a class="text-on-surface-variant hover:text-primary transition-colors" data-path="let" href="let.html">Landlord Advisory</a></li>
+          <li><a class="text-on-surface-variant hover:text-primary transition-colors" data-path="valuation" href="valuation.html">Instant Valuation</a></li>
+        </ul>
+      </div>
+
+      <div>
+        <div class="text-caps text-primary uppercase mb-4">Area Guides</div>
+        <ul class="space-y-2.5 text-small">
+          <li><a class="text-on-surface-variant hover:text-primary transition-colors" data-path="hammersmith-guide" href="hammersmith.html">Hammersmith W6</a></li>
+          <li><a class="text-on-surface-variant hover:text-primary transition-colors" data-path="chiswick-guide" href="chiswick.html">Chiswick W4</a></li>
+          <li><a class="text-on-surface-variant hover:text-primary transition-colors" data-path="fulham-guide" href="fulham.html">Fulham SW6</a></li>
+          <li><a class="text-on-surface-variant hover:text-primary transition-colors" data-path="brook-green-guide" href="brook-green.html">Brook Green W14</a></li>
+          <li><a class="text-on-surface-variant hover:text-primary transition-colors" data-path="shepherds-bush-guide" href="shepherds-bush.html">Shepherds Bush W12</a></li>
+          <li><a class="text-on-surface-variant hover:text-primary transition-colors" data-path="ealing-acton-guide" href="ealing-acton.html">Ealing &amp; Acton W5/W3</a></li>
+        </ul>
+      </div>
+
+      <div>
+        <div class="text-caps text-primary uppercase mb-4">Company</div>
+        <ul class="space-y-2.5 text-small mb-5">
+          <li><a class="text-on-surface-variant hover:text-primary transition-colors" data-path="about" href="about.html">About Us</a></li>
+          <li><a class="text-on-surface-variant hover:text-primary transition-colors" data-path="contact" href="contact.html">Contact</a></li>
+          <li><a class="text-on-surface-variant hover:text-primary transition-colors" data-path="area-guides" href="area-guides.html">All Area Guides</a></li>
+          <li><a class="text-on-surface-variant hover:text-primary transition-colors" data-path="privacy-policy" href="privacy-policy.html">Privacy Policy</a></li>
+          <li><a class="text-on-surface-variant hover:text-primary transition-colors" data-path="terms-of-business" href="terms-of-business.html">Terms of Business</a></li>
+        </ul>
+        <div class="border border-border-hairline rounded p-3 text-meta text-slate-muted space-y-1">
+          <div class="text-on-surface font-semibold mb-1">Accreditations</div>
+          <div>SafeAgent A140</div>
+          <div>Property Ombudsman N02559</div>
+          <div>CMP Protected Client Money</div>
+        </div>
+      </div>
+    </div>
+
+    <div class="pt-6 border-t border-border-hairline">
+      <div class="flex flex-col md:flex-row items-start md:items-center justify-between gap-3 text-meta text-slate-muted">
+        <div class="flex flex-wrap items-center gap-x-5 gap-y-1">
+          <span>Challenge Services Ltd · Co. Reg. 02987418</span>
+          <span>VAT 714478917</span>
+          <span>Registered Office: 61 Dalling Road, London W6 0JD</span>
+        </div>
+        <div>© 2026 London Estates. All rights reserved.</div>
+      </div>
+    </div>
+  </div>
+</footer>
+
+<!-- ================= SCRIPTS ================= -->
+<script>
+(function () {
+  'use strict';
+
+  var PAGE = document.body.dataset.page || 'rent';
+
+  var IMG = {
+    kitchen:    'https://lh3.googleusercontent.com/aida-public/AB6AXuCltvK1IryS8lHVQtksR_bpOvZut5V_t44XlQfUun1-CBN-MkBXF_SPfXDdGwn_JID-fijW1P4MTiK7__S92sL0Y9THP5RQ6_ctMwnRoRcSwe-6TXPpMDBBzWJx-zWCZ7bgBDTo-lNYjToDOFJ9AbdT1VTLPmVkhBZIdPws7Xu0dvvQp3D9kyCGcFiUXpK86FDHnP6M4JbyhmdFKu_Tip0q1iE-8qUJbsQj762sKeDmDaTqrw814_wL',
+    reception:  'https://lh3.googleusercontent.com/aida-public/AB6AXuDYcSkVpUFPZVpSORtgK5eD9AUqUPFgAy7hsP-W3O0szcjIU2LnW2qxnLVeH3mFdLviTKlsJpfB3FIXh4XCAxm5chqqIgfVltALkqU32I-0njMnfSWbwdJdEkwxV10BWXushbBJQBLNnGB2Ad14yBxMSVi_TBPbWSA1BI-fnaOnhHO-bbN99HpcDyFZkYa-Qy12kEgqfc17FEcpWr7sG3lZvdQHlZPWoFY8ojiQWO-ZuDyK928BpYvN',
+    openplan:   'https://lh3.googleusercontent.com/aida-public/AB6AXuBeCMFvwT4iO9QJykWFlcLuaf6igB0ch58eu7e7NVNLmgy8aKmN5PP_99L5Cg2leGttzsMEg-x_qNt01h2J9B8bJWRjbiw2Yxu-FliePJ3M0a_PyfsUzZSbQ3Wxh09ENpOVn0JqkaUKRDREBidHWKpsedZ6v96O3BzYmSXgKjzU-qNM2ZDNUa3qJnxNRHRxHHAQFvDcr7OugkRkNSIbLHdRjyE8NQKsjtvuPhnVLW8ESu5IswRAPewG',
+    maisonette: 'https://lh3.googleusercontent.com/aida-public/AB6AXuCSHumx8T1DhxB3nZQLs2iKakPbWpqo6HfFdPjWW6GcL_VmVYAZ1wNB2fXO6gdzv0mHljbiD-B0KNlHhRH4M_3eeXWrbNps0-xxTH6Q3Z5NJwOI0TFKCctXtJas3nE5jyGk1vqPAEPoP4m2RCnYPG6eR_rX7Z3UzrTxVFsL5FBacJRwSIZZcKIE1dZLPuNmGcBQLnetZw3ymtm0tTOBuR12652Mc1yRItRzY1cwvYmBK2iD9QyP6Rog',
+    salon:      'https://lh3.googleusercontent.com/aida-public/AB6AXuBiVCmao-W3pJxAfiQyUXvkjXCepyzLSBvDp4tfYfYdI2T0W5-V92WFI32ic1qDrPhUQNqEScZ7ezcIAX3CCpMf6e_TeIzCpwRlPHGyMjxFIbhxnECx3Ftc7YtXDyeGaQ50sp0e-LipTXSsQ1hVsxt8u_KPlfbEW0NTVhLDc3ekNw4QmBnJDCiRgKjZ6UqxWK0P8YqP8j5nC3i5X3VwnPK0gOfNG8rwSXejk390StTaiBN8nZ-utx9a',
+    ground:     'https://lh3.googleusercontent.com/aida-public/AB6AXuAQGopIFbeVUr5MwYRdxQzTmZLJxEpceurcqg4w-Bo4iOf-6fkgeDQjsDHMKZ8YuJ9_Q5-ibCLM-SErsYhaHRiDSmJ_pG4C1fmdlLocroPPVF28z6ndz2djQyNUxnCcOk5jLTjMKvKF9c6TLOn5NoaZhcOI8Q44QU89sS_UtMrMJ3mT1WG8ChgoYcTo3-eMZDEKQCD6zEP06j-tSda5-KNAT-pDOi-dD-xFXe6a4qv6zbpyaXRiGUQl'
+  };
+
+  var PROPERTIES = [
+    { id:'biscay-road', status:'sold-stc', statusLabel:'Sold STC', rent:false,
+      price:685000, priceLabel:'£685,000', tenure:'Share of Freehold',
+      title:'Biscay Road, Hammersmith, London W6', area:'Hammersmith W6', areaKey:'hammersmith',
+      beds:2, baths:2, type:'maisonette',
+      summary:'London Estates are pleased to market this bright and airy, split-level TWO DOUBLE BEDROOM TWO BATHROOM maisonette in the heart of Hammersmith. The property benefits from many original features.',
+      features:[['bed','2 Beds'],['bathtub','2 Baths'],['stairs','Split-Level']],
+      image:IMG.kitchen, imageAlt:'Kitchen and dining room in a Victorian maisonette on Biscay Road, Hammersmith',
+      featured:true },
+    { id:'claxton-grove', status:'sold', statusLabel:'Sold', rent:false,
+      price:1075000, priceLabel:'£1,075,000', tenure:'Freehold House',
+      title:'Claxton Grove, Hammersmith, London W6', area:'Barons Court W6', areaKey:'hammersmith',
+      beds:4, baths:2, type:'house',
+      summary:'London Estates is delighted to present this exceptional 4-bedroom home, boasting private front and rear gardens. Ideally located near Charing Cross Hospital and Barons Court Tube Station.',
+      features:[['bed','4 Beds'],['bathtub','2 Baths'],['yard','2 Gardens']],
+      image:IMG.reception, imageAlt:'Victorian reception room with cast-iron fireplace on Claxton Grove',
+      featured:false },
+    { id:'lochaline-street-sale', status:'sold', statusLabel:'Sold', rent:false,
+      price:1365000, priceLabel:'£1,365,000', tenure:'Freehold Family Home',
+      title:'Lochaline Street, Hammersmith, London W6', area:'Tree-Lined W6', areaKey:'hammersmith',
+      beds:4, baths:3.5, type:'house',
+      summary:'London Estates is delighted to present an exceptional four-bedroom, three-bathroom family home with an additional downstairs W/C. This immaculate property is nestled on a tranquil tree-lined street.',
+      features:[['bed','4 Beds'],['bathtub','3.5 Baths'],['nature','Tree-Lined']],
+      image:IMG.openplan, imageAlt:'Open-plan living room on Lochaline Street',
+      featured:false },
+    { id:'lochaline-street-let-3', status:'let-agreed', statusLabel:'Let Agreed', rent:true,
+      price:3500, priceLabel:'£3,500', tenure:'Long Term',
+      title:'Lochaline Street, Hammersmith, London W6', area:'Lettings W6', areaKey:'hammersmith',
+      beds:3, baths:3, type:'maisonette',
+      summary:'London Estates is pleased to present this immaculate and spacious three-bedroom, three-bathroom maisonette, available for a long-term lease. This well-appointed property boasts a contemporary finish.',
+      features:[['bed','3 Beds'],['bathtub','3 Baths'],['schedule','Long Term']],
+      image:IMG.maisonette, imageAlt:'Contemporary maisonette on Lochaline Street',
+      featured:true },
+    { id:'chesilton-road', status:'let-agreed', statusLabel:'Let Agreed', rent:true,
+      price:9350, priceLabel:'£9,350', tenure:'3,075 sq ft',
+      title:'Chesilton Road, Fulham, London SW6', area:'Fulham SW6', areaKey:'fulham',
+      beds:7, baths:4, type:'house',
+      summary:'LONDON ESTATES are proud to present this highly unique and well-finished, seven-bedroom terraced family home. Set over five floors and offering a total of 3,075 sq ft of living space.',
+      features:[['bed','7 Beds'],['layers','5 Floors'],['square_foot','3,075 sq ft']],
+      image:IMG.salon, imageAlt:'Reception salon of a five-storey Fulham townhouse',
+      featured:false },
+    { id:'lochaline-street-let-2', status:'let-agreed', statusLabel:'Let Agreed', rent:true,
+      price:3500, priceLabel:'£3,500', tenure:'Ground Floor',
+      title:'Lochaline Street, Hammersmith, London W6', area:'Hammersmith W6', areaKey:'hammersmith',
+      beds:2, baths:1, type:'apartment',
+      summary:'London Estates is delighted to present this superb ground floor apartment, ideally located on Lochaline Street in Hammersmith. Just a short walk from Hammersmith Underground Station.',
+      features:[['bed','2 Beds'],['directions_subway','Tube Walk'],['home','Ground Floor']],
+      image:IMG.ground, imageAlt:'Ground floor flat on Lochaline Street',
+      featured:false },
+    { id:'airedale-avenue', status:'available', statusLabel:'Available', rent:false,
+      price:1150000, priceLabel:'£1,150,000', tenure:'Freehold House',
+      title:'Airedale Avenue, Chiswick, London W4', area:'Chiswick W4', areaKey:'chiswick',
+      beds:3, baths:2, type:'house',
+      summary:'A beautifully presented three-bedroom Edwardian family house on a sought-after Chiswick avenue, moments from Chiswick High Road and Turnham Green. Offered with a landscaped rear garden.',
+      features:[['bed','3 Beds'],['bathtub','2 Baths'],['yard','Garden']],
+      image:IMG.reception, imageAlt:'Edwardian house on Airedale Avenue, Chiswick',
+      featured:true },
+    { id:'fulham-palace-road', status:'available', statusLabel:'Available', rent:false,
+      price:875000, priceLabel:'£875,000', tenure:'Share of Freehold',
+      title:'Fulham Palace Road, Fulham, London SW6', area:'Fulham SW6', areaKey:'fulham',
+      beds:2, baths:1, type:'apartment',
+      summary:'A light and generously proportioned two-bedroom garden apartment with direct access to a private south-facing garden, close to Bishops Park and the River Thames.',
+      features:[['bed','2 Beds'],['bathtub','1 Bath'],['yard','Private Garden']],
+      image:IMG.kitchen, imageAlt:'Fulham garden apartment',
+      featured:true },
+    { id:'brook-green-mews', status:'available', statusLabel:'Available', rent:false,
+      price:1495000, priceLabel:'£1,495,000', tenure:'Freehold Mews House',
+      title:'Brook Green, London W14', area:'Brook Green W14', areaKey:'brook-green',
+      beds:3, baths:2, type:'mews',
+      summary:'A rare and immaculately refurbished mews house tucked away off Brook Green. Three bedrooms, a private roof terrace, and secure off-street parking, moments from Kensington.',
+      features:[['bed','3 Beds'],['bathtub','2 Baths'],['home','Mews House']],
+      image:IMG.maisonette, imageAlt:'Mews house in Brook Green',
+      featured:false },
+    { id:'dalling-road-let', status:'available', statusLabel:'Available', rent:true,
+      price:2650, priceLabel:'£2,650', tenure:'Available Now',
+      title:'Dalling Road, Hammersmith, London W6', area:'Hammersmith W6', areaKey:'hammersmith',
+      beds:2, baths:1, type:'apartment',
+      summary:'A well-presented two-bedroom first-floor flat on Dalling Road, a short walk from Ravenscourt Park and Hammersmith station. Offered unfurnished and available immediately.',
+      features:[['bed','2 Beds'],['bathtub','1 Bath'],['schedule','Available Now']],
+      image:IMG.ground, imageAlt:'First-floor flat on Dalling Road',
+      featured:true },
+    { id:'chiswick-high-road-let', status:'available', statusLabel:'Available', rent:true,
+      price:3200, priceLabel:'£3,200', tenure:'Available Now',
+      title:'Chiswick High Road, Chiswick, London W4', area:'Chiswick W4', areaKey:'chiswick',
+      beds:2, baths:2, type:'apartment',
+      summary:'A stylish two-bedroom, two-bathroom apartment in a modern development on Chiswick High Road, with a private balcony and secure underground parking.',
+      features:[['bed','2 Beds'],['bathtub','2 Baths'],['balcony','Balcony']],
+      image:IMG.kitchen, imageAlt:'Chiswick High Road apartment',
+      featured:true },
+    { id:'parsons-green-let', status:'available', statusLabel:'Available', rent:true,
+      price:4250, priceLabel:'£4,250', tenure:'Available Now',
+      title:'Parsons Green, Fulham, London SW6', area:'Fulham SW6', areaKey:'fulham',
+      beds:3, baths:2, type:'maisonette',
+      summary:'A spacious three-bedroom upper maisonette moments from Parsons Green. Arranged over two floors with a generous reception room and a private rear garden.',
+      features:[['bed','3 Beds'],['bathtub','2 Baths'],['yard','Private Garden']],
+      image:IMG.maisonette, imageAlt:'Upper maisonette near Parsons Green',
+      featured:false }
+  ];
+
+  var STATUS_CLASS = {
+    'available': 'bg-status-available',
+    'sold-stc':  'bg-status-sold',
+    'sold':      'bg-status-sold',
+    'let-agreed':'bg-status-let'
+  };
+
+  var PRICE_OPTIONS = {
+    buy: [
+      ['0-750000','Up to £750,000'],
+      ['750000-1250000','£750k – £1,250,000'],
+      ['1250000-2000000','£1,250,000 – £2,000,000'],
+      ['2000000-0','£2,000,000+']
+    ],
+    rent: [
+      ['0-2500','Up to £2,500 pcm'],
+      ['2500-4000','£2,500 – £4,000 pcm'],
+      ['4000-7000','£4,000 – £7,000 pcm'],
+      ['7000-0','£7,000+ pcm']
+    ]
+  };
+
+  function esc(s) {
+    return String(s == null ? '' : s)
+      .replace(/&/g,'&amp;').replace(/</g,'&lt;')
+      .replace(/>/g,'&gt;').replace(/"/g,'&quot;');
+  }
+
+  function markActive() {
+    Array.prototype.forEach.call(document.querySelectorAll('[data-path]'), function (link) {
+      if (link.getAttribute('data-path') !== PAGE) return;
+      var scope = link.closest('[data-active-classes]');
+      var classes = scope ? scope.getAttribute('data-active-classes') : '';
+      if (classes) classes.split(/\s+/).forEach(function (c) { if (c) link.classList.add(c); });
+      link.setAttribute('aria-current', 'page');
+    });
+  }
+
+  function initMobileMenu() {
+    var btn = document.getElementById('mobile-menu-btn');
+    var menu = document.getElementById('mobile-menu');
+    if (!btn || !menu) return;
+    btn.addEventListener('click', function () {
+      var isOpen = menu.classList.toggle('hidden') === false;
+      btn.setAttribute('aria-expanded', String(isOpen));
+      var icon = btn.querySelector('[data-menu-icon]');
+      if (icon) icon.textContent = isOpen ? 'close' : 'menu';
+    });
+  }
+
+  function propertyCard(p) {
+    var badge = STATUS_CLASS[p.status] || STATUS_CLASS.available;
+    var pcm = p.rent ? ' <span class="text-meta text-slate-muted font-normal">pcm</span>' : '';
+
+    var features = p.features.map(function (f) {
+      return '<span class="inline-flex items-center gap-1.5">' +
+        '<span class="material-symbols-outlined text-[13px]">' + esc(f[0]) + '</span>' +
+        '<span>' + esc(f[1]) + '</span>' +
+      '</span>';
+    }).join('');
+
+    return '' +
+      '<article class="group bg-white border border-border-hairline rounded-lg overflow-hidden hover:border-border-strong hover:shadow-sm transition-all duration-200 flex flex-col">' +
+        '<a href="property.html?id=' + encodeURIComponent(p.id) + '" class="relative aspect-[4/3] overflow-hidden bg-surface-low block">' +
+          '<div class="bg-cover bg-center w-full h-full group-hover:scale-[1.03] transition-transform duration-500 ease-out" role="img" aria-label="' + esc(p.imageAlt) + '" style="background-image:url(\'' + p.image + '\')"></div>' +
+          '<span class="badge ' + badge + ' text-white absolute top-3 left-3">' + esc(p.statusLabel) + '</span>' +
+        '</a>' +
+        '<div class="p-5 flex-1 flex flex-col">' +
+          '<div class="text-caps text-mulberry-vivid uppercase mb-2">' + esc(p.area) + '</div>' +
+          '<div class="flex items-baseline justify-between gap-3">' +
+            '<span class="text-price text-on-surface">' + esc(p.priceLabel) + pcm + '</span>' +
+            '<span class="text-meta text-slate-muted text-right">' + esc(p.tenure) + '</span>' +
+          '</div>' +
+          '<h3 class="text-h3 text-primary mt-2 mb-1.5 leading-snug">' +
+            '<a href="property.html?id=' + encodeURIComponent(p.id) + '" class="hover:text-mulberry-vivid transition-colors">' + esc(p.title) + '</a>' +
+          '</h3>' +
+          '<p class="text-small text-on-surface-variant line-clamp-2 mb-4">' + esc(p.summary) + '</p>' +
+          '<div class="mt-auto pt-4 border-t border-border-hairline flex flex-wrap items-center gap-x-4 gap-y-2 text-meta text-slate-muted">' + features + '</div>' +
+        '</div>' +
+      '</article>';
+  }
+
+  function matches(p, f) {
+    if (f.mode && (f.mode === 'rent') !== !!p.rent) return false;
+    if (f.area && f.area !== 'all' && p.areaKey !== f.area) return false;
+    if (f.type && f.type !== 'all' && p.type !== f.type) return false;
+    if (f.beds && Number(f.beds) > 0 && p.beds < Number(f.beds)) return false;
+    if (f.price) {
+      var parts = String(f.price).split('-');
+      var min = Number(parts[0]) || 0;
+      var max = Number(parts[1]) || 0;
+      if (p.price < min) return false;
+      if (max && p.price > max) return false;
+    }
+    return true;
+  }
+
+  function renderGrid(el, list) {
+    if (!el) return;
+    if (!list.length) {
+      el.innerHTML = '<div class="col-span-full text-center py-16 border border-dashed border-border-hairline rounded-lg">' +
+        '<span class="material-symbols-outlined text-[28px] text-slate-muted mb-3 block">search_off</span>' +
+        '<p class="text-body text-on-surface-variant">No properties match your selection.</p>' +
+        '<p class="text-meta text-slate-muted mt-1">Try widening your search or resetting the filters.</p>' +
+      '</div>';
+      return;
+    }
+    el.innerHTML = list.map(propertyCard).join('');
+  }
+
+  function readFilters(form) {
+    function val(n) { var el = form.querySelector('[name="' + n + '"]'); return el ? el.value : ''; }
+    return { mode: val('mode'), area: val('area'), price: val('price'), beds: val('beds'), type: val('type') };
+  }
+
+  function initSearch() {
+    var form = document.getElementById('search-form');
+    var grid = document.getElementById('listing-grid') || document.getElementById('featured-grid');
+    var countEl = document.getElementById('result-count');
+    
+    if (!grid) return;
+
+    // Initial render based on the page type
+    function renderDefault() {
+      var list;
+      if (PAGE === 'buy') {
+        list = PROPERTIES.filter(function (p) { return !p.rent; });
+      } else if (PAGE === 'rent') {
+        list = PROPERTIES.filter(function (p) { return p.rent; });
+      } else {
+        list = PROPERTIES.filter(function (p) { return p.featured; }).slice(0, 3);
+      }
+      renderGrid(grid, list);
+      
+      if (countEl) {
+        countEl.textContent = PAGE === 'home' 
+          ? 'Showing ' + list.length + ' featured residences' 
+          : list.length + ' matching properties';
+      }
+    }
+
+    renderDefault();
+
+    // If there's no search form on the page (e.g., Homepage), stop here.
+    if (!form) return;
+
+    var priceSel = document.getElementById('price-selector');
+    var modeInput = document.getElementById('search-mode');
+    var resetBtn = document.getElementById('reset-search');
+
+    function setMode(mode) {
+      if (modeInput) modeInput.value = mode;
+      Array.prototype.forEach.call(document.querySelectorAll('[data-search-mode]'), function (b) {
+        var on = b.getAttribute('data-search-mode') === mode;
+        b.classList.toggle('active', on);
+        b.classList.toggle('inactive', !on);
+        b.setAttribute('aria-pressed', String(on));
+      });
+      if (priceSel) {
+        priceSel.innerHTML = (PRICE_OPTIONS[mode] || PRICE_OPTIONS.buy)
+          .map(function (o) { return '<option value="' + o[0] + '">' + o[1] + '</option>'; })
+          .join('');
+      }
+    }
+
+    function run() {
+      var list = PROPERTIES.filter(function (p) { return matches(p, readFilters(form)); });
+      renderGrid(grid, list);
+      if (countEl) {
+        countEl.textContent = list.length + ' matching properties';
+      }
+      if (resetBtn) resetBtn.classList.remove('hidden');
+    }
+
+    setMode(modeInput ? modeInput.value : 'rent');
+
+    Array.prototype.forEach.call(document.querySelectorAll('[data-search-mode]'), function (b) {
+      b.addEventListener('click', function () {
+        setMode(b.getAttribute('data-search-mode'));
+        run();
+      });
+    });
+
+    form.addEventListener('submit', function (e) { e.preventDefault(); run(); });
+    Array.prototype.forEach.call(form.querySelectorAll('select'), function (s) {
+      s.addEventListener('change', run);
+    });
+
+    Array.prototype.forEach.call(document.querySelectorAll('[data-quick]'), function (btn) {
+      btn.addEventListener('click', function () {
+        var q = JSON.parse(btn.getAttribute('data-quick'));
+        Object.keys(q).forEach(function (k) {
+          if (k === 'mode') { setMode(q[k]); return; }
+          var el = form.querySelector('[name="' + k + '"]');
+          if (el) el.value = q[k];
+        });
+        run();
+        var target = document.getElementById('listing-results') || document.getElementById('featured-listings');
+        if (target) target.scrollIntoView({ behavior: 'smooth', block: 'start' });
+      });
+    });
+
+    if (resetBtn) {
+      resetBtn.addEventListener('click', function () {
+        form.reset();
+        renderDefault();
+      });
+    }
+  }
+
+  document.addEventListener('DOMContentLoaded', function () {
+    markActive();
+    initMobileMenu();
+    initSearch();
+  });
+})();
+</script>
+
+</body>
+  </html>
