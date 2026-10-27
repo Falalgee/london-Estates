@@ -156,9 +156,7 @@ tailwind.config = {
 
 <!-- ================= HEADER ================= -->
 <header class="fixed top-0 w-full z-50 bg-surface border-b border-border-hairline">
-  <!-- Main bar -->
   <div class="h-16 max-w-site mx-auto px-6 md:px-8 flex items-center justify-between gap-6">
-
     <a href="index.html" data-path="home" class="flex items-center gap-3 shrink-0">
       <img alt="" class="h-7 w-auto object-contain" src="https://lh3.googleusercontent.com/aida/AEtjO1XJhx9kwFdPEgMI_74g2NRFjMQEM8tG_2yJMOhCAJuD38YbIXtYfxGv6xo5WWM49Gb6dkHNJzDt6jMplhyFW0nd3Q0mvOmpoAWphpHtKIztcDYHPE81UYiUSA_a1ILIp2uvKJ55mp8LRpJDrb2z346gzrofjPdlpncWr4jribr2GU0-udpC4LvL30gizTBz79Som_ExLrizAThD7PxEgbynz8hPem4Grxn3DhuVjlTixn-uJvmRhHCzY9Y" />
       <div class="flex flex-col leading-none">
@@ -178,20 +176,15 @@ tailwind.config = {
 
     <div class="flex items-center gap-2">
       <a data-path="valuation" href="valuation.html" class="hidden sm:inline-flex btn btn-primary btn-sm">Request a Valuation</a>
-
       <a href="contact.html" aria-label="Contact" class="w-8 h-8 rounded-full border border-border-hairline flex items-center justify-center text-slate-muted hover:text-primary hover:border-border-strong transition-colors">
         <span class="material-symbols-outlined text-[16px]">person</span>
       </a>
-
-      <button id="mobile-menu-btn" type="button"
-              class="xl:hidden w-8 h-8 rounded border border-border-hairline flex items-center justify-center text-slate-muted hover:text-primary hover:border-border-strong transition-colors"
-              aria-controls="mobile-menu" aria-expanded="false" aria-label="Open menu">
+      <button id="mobile-menu-btn" type="button" class="xl:hidden w-8 h-8 rounded border border-border-hairline flex items-center justify-center text-slate-muted hover:text-primary hover:border-border-strong transition-colors" aria-controls="mobile-menu" aria-expanded="false" aria-label="Open menu">
         <span class="material-symbols-outlined text-[18px]" data-menu-icon>menu</span>
       </button>
     </div>
   </div>
 
-  <!-- Mobile menu -->
   <div id="mobile-menu" class="hidden xl:hidden border-t border-border-hairline bg-surface">
     <nav class="max-w-site mx-auto px-6 py-4 flex flex-col" data-active-classes="text-primary">
       <a class="py-2.5 text-label text-on-surface-variant hover:text-primary transition-colors border-b border-border-hairline" data-path="home" href="index.html">Home</a>
@@ -206,8 +199,7 @@ tailwind.config = {
       <div class="flex flex-col gap-2 pt-4">
         <a class="btn btn-primary w-full" href="valuation.html">Request a Valuation</a>
         <a class="btn btn-secondary w-full" href="tel:02087418485">
-          <span class="material-symbols-outlined text-[15px]">call</span>
-          020 8741 8485
+          <span class="material-symbols-outlined text-[15px]">call</span> 020 8741 8485
         </a>
       </div>
     </nav>
@@ -239,7 +231,7 @@ tailwind.config = {
         </div>
 
         <div class="lg:col-span-4 flex flex-col gap-3">
-          <a href="#featured-listings" class="btn bg-white text-primary hover:bg-surface-low justify-between">
+          <a href="buy.html" class="btn bg-white text-primary hover:bg-surface-low justify-between">
             <span>Explore properties</span>
             <span class="material-symbols-outlined text-[16px]">arrow_forward</span>
           </a>
@@ -279,111 +271,18 @@ tailwind.config = {
     </div>
   </section>
 
-  <!-- ================= SECTION 2: SEARCH ================= -->
-  <section class="relative z-20 -mt-6 max-w-site mx-auto px-6 md:px-8 w-full">
-    <div class="bg-white border border-border-hairline rounded-lg p-6 md:p-8 shadow-sm">
-
-      <div class="flex flex-col md:flex-row md:items-center justify-between gap-4 mb-6">
-        <div>
-          <div class="text-caps text-mulberry-vivid uppercase mb-1.5">West London Portfolio</div>
-          <h2 class="font-serif text-h2 text-primary">Find your place in West London.</h2>
-        </div>
-        <div class="search-toggle" role="group" aria-label="Search mode">
-          <button type="button" class="active" data-search-mode="buy" aria-pressed="true">Buy</button>
-          <button type="button" class="inactive" data-search-mode="rent" aria-pressed="false">Rent</button>
-        </div>
-      </div>
-
-      <form id="search-form" class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-5 gap-3">
-        <input type="hidden" name="mode" id="search-mode" value="buy"/>
-
-        <div>
-          <label class="block text-caps text-slate-muted uppercase mb-1.5" for="f-area">Neighbourhood</label>
-          <div class="relative">
-            <span class="material-symbols-outlined absolute left-3 top-1/2 -translate-y-1/2 text-[16px] text-slate-muted pointer-events-none">location_on</span>
-            <select id="f-area" name="area" class="input input-icon">
-              <option value="all">All West London</option>
-              <option value="hammersmith" selected>Hammersmith (W6)</option>
-              <option value="fulham">Fulham (SW6)</option>
-              <option value="chiswick">Chiswick (W4)</option>
-              <option value="brook-green">Brook Green (W14)</option>
-              <option value="shepherds-bush">Shepherds Bush (W12)</option>
-            </select>
-          </div>
-        </div>
-
-        <div>
-          <label class="block text-caps text-slate-muted uppercase mb-1.5" for="price-selector">Price</label>
-          <div class="relative">
-            <span class="material-symbols-outlined absolute left-3 top-1/2 -translate-y-1/2 text-[16px] text-slate-muted pointer-events-none">payments</span>
-            <select id="price-selector" name="price" class="input input-icon">
-              <option value="0-750000">Up to £750,000</option>
-              <option value="750000-1250000">£750k – £1,250,000</option>
-              <option value="1250000-2000000">£1,250,000 – £2,000,000</option>
-              <option value="2000000-0">£2,000,000+</option>
-            </select>
-          </div>
-        </div>
-
-        <div>
-          <label class="block text-caps text-slate-muted uppercase mb-1.5" for="f-beds">Bedrooms</label>
-          <div class="relative">
-            <span class="material-symbols-outlined absolute left-3 top-1/2 -translate-y-1/2 text-[16px] text-slate-muted pointer-events-none">bed</span>
-            <select id="f-beds" name="beds" class="input input-icon">
-              <option value="0">Any</option>
-              <option value="1">1+</option>
-              <option value="2">2+</option>
-              <option value="3">3+</option>
-              <option value="4">4+</option>
-            </select>
-          </div>
-        </div>
-
-        <div>
-          <label class="block text-caps text-slate-muted uppercase mb-1.5" for="f-type">Type</label>
-          <div class="relative">
-            <span class="material-symbols-outlined absolute left-3 top-1/2 -translate-y-1/2 text-[16px] text-slate-muted pointer-events-none">apartment</span>
-            <select id="f-type" name="type" class="input input-icon">
-              <option value="all">Any</option>
-              <option value="house">Period Houses</option>
-              <option value="maisonette">Maisonettes</option>
-              <option value="apartment">Garden Apartments</option>
-              <option value="mews">Mews &amp; Penthouses</option>
-            </select>
-          </div>
-        </div>
-
-        <div class="flex items-end">
-          <button type="submit" class="btn btn-primary w-full">
-            <span class="material-symbols-outlined text-[16px]">search</span>
-            Search
-          </button>
-        </div>
-      </form>
-
-      <div class="flex flex-wrap items-center gap-2 mt-5 pt-5 border-t border-border-hairline">
-        <span class="text-meta text-slate-muted mr-1">Popular:</span>
-        <button type="button" data-quick='{"area":"hammersmith","beds":"3","type":"all"}' class="chip">Hammersmith family homes</button>
-        <button type="button" data-quick='{"mode":"rent","area":"fulham","beds":"0","type":"all"}' class="chip">Fulham lettings</button>
-        <button type="button" data-quick='{"area":"chiswick","beds":"0","type":"apartment"}' class="chip">Chiswick apartments</button>
-        <button type="button" data-quick='{"area":"all","beds":"0","type":"maisonette"}' class="chip">Maisonettes</button>
-      </div>
-    </div>
-  </section>
-
-  <!-- ================= SECTION 3: FEATURED PROPERTIES ================= -->
+  <!-- ================= SECTION 2: FEATURED PROPERTIES ================= -->
   <section class="max-w-site mx-auto px-6 md:px-8 py-16 md:py-24 w-full" id="featured-listings">
     <div class="flex flex-col md:flex-row md:items-end justify-between gap-4 mb-10">
       <div class="max-w-2xl">
         <div class="text-caps text-mulberry-vivid uppercase mb-2">Curated Portfolio</div>
         <h2 class="font-serif text-h1-sm md:text-h1 text-primary">Featured West London Properties</h2>
         <p class="text-body text-on-surface-variant mt-3">
-          Representative residential sales and quality lettings across Hammersmith W6 and Fulham SW6, marketed with diligence.
+          A selection of our current residential sales and lettings across West London.
         </p>
       </div>
       <div class="flex items-center gap-3">
-        <span class="text-meta text-slate-muted" id="result-count">6 featured residences</span>
-        <button type="button" id="reset-search" class="hidden text-meta text-mulberry-vivid underline underline-offset-2 hover:no-underline">Reset</button>
+        <span class="text-meta text-slate-muted" id="result-count">Showing 3 featured residences</span>
       </div>
     </div>
 
@@ -399,159 +298,78 @@ tailwind.config = {
     </div>
   </section>
 
-  <!-- ================= SECTION 4: AGENCY TEASER ================= -->
-  <section class="w-full bg-linen-warm border-y border-border-hairline py-16 md:py-24">
+  <!-- ================= SECTION 3: SERVICES ================= -->
+  <section class="w-full bg-surface-low border-y border-border-hairline py-16 md:py-24">
     <div class="max-w-site mx-auto px-6 md:px-8">
-      <div class="grid grid-cols-1 lg:grid-cols-12 gap-12 lg:gap-16 items-center">
+      <div class="text-center max-w-2xl mx-auto mb-14">
+        <div class="text-caps text-mulberry-vivid uppercase mb-3">End-to-End Property Expertise</div>
+        <h2 class="font-serif text-h1-sm md:text-h1 text-primary">Comprehensive West London Services</h2>
+        <p class="text-body text-on-surface-variant mt-3">
+          Tailored residential solutions engineered for vendors, buyers, landlords, and tenants.
+        </p>
+      </div>
 
-        <div class="lg:col-span-7">
-          <div class="text-caps text-mulberry-vivid uppercase mb-3">Our Philosophy &amp; Ethos</div>
-          <h2 class="font-serif text-h1-sm md:text-h1 text-primary">Local knowledge. A more personal approach.</h2>
-          <p class="text-lead text-on-surface-variant mt-4 italic font-serif">Independent West London estate &amp; letting agents.</p>
-
-          <p class="text-body text-on-surface-variant mt-6 max-w-xl leading-relaxed">
-            Our goal is to provide unrivalled quality of service at a competitive price, whether you are buying, selling, renting, or letting a property. We are not like the large corporate estate agent machines — as an independent, every customer is highly important to us.
+      <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-5">
+        <div class="bg-white border border-border-hairline rounded-lg p-6 flex flex-col hover:border-border-strong transition-colors">
+          <div class="w-10 h-10 rounded bg-surface-low flex items-center justify-center text-primary mb-5">
+            <span class="material-symbols-outlined text-[20px]">cottage</span>
+          </div>
+          <h3 class="font-serif text-[19px] text-primary mb-2">Residential Sales</h3>
+          <p class="text-small text-on-surface-variant leading-relaxed mb-6">
+            Targeted multichannel marketing across Zoopla, OnTheMarket, and local private buyer networks.
           </p>
-
-          <a href="about.html" class="mt-6 inline-flex items-center gap-1.5 text-label font-medium text-primary hover:gap-2.5 transition-all">
-            Read our full story
-            <span class="material-symbols-outlined text-[15px]">arrow_forward</span>
+          <a class="mt-auto inline-flex items-center gap-1.5 text-meta font-semibold text-primary hover:gap-2.5 transition-all uppercase tracking-wider" href="sell.html">
+            Selling process
+            <span class="material-symbols-outlined text-[13px]">arrow_forward</span>
           </a>
         </div>
 
-        <div class="lg:col-span-5">
-          <div class="aspect-[4/5] w-full rounded-lg overflow-hidden bg-surface-low border border-border-hairline">
-            <div class="bg-cover bg-center w-full h-full" role="img" aria-label="London Estates office at 61 Dalling Road, Hammersmith"
-                 style="background-image: url('https://lh3.googleusercontent.com/aida-public/AB6AXuAn-yJKBqhhjqaID6fcq9FvxQwaP7w1SNqJOH7JS-A1N9rWKWXp0ZVZcrlg8LH2ssFmPwjGZ5jb-YMKLof5MqklVDl94loMd_nVxmULb6nlc4bMw8MgBZrAIebehn-ja1GjE4sDzwy5EbsPdQQB1_AwgfLzFZ-Eez_akVXu83OxoAKt6_PnYPrQv9Ltw5f-YCu5PTXGgE0VdVCP1dQzr8dxngoqxrwXJHWkPzBCoedrMNT6IBGEbFed')"></div>
+        <div class="bg-white border border-border-hairline rounded-lg p-6 flex flex-col hover:border-border-strong transition-colors">
+          <div class="w-10 h-10 rounded bg-surface-low flex items-center justify-center text-primary mb-5">
+            <span class="material-symbols-outlined text-[20px]">key</span>
           </div>
-        </div>
-      </div>
-
-      <blockquote class="mt-16 pt-10 border-t border-border-strong/50 max-w-3xl">
-        <p class="font-serif text-[22px] md:text-[26px] leading-[1.4] text-primary italic">
-          "We've done this hundreds of times before — lean on our expertise and honesty."
-        </p>
-        <footer class="mt-4 text-caps text-slate-muted uppercase">
-          — John &amp; The London Estates Team
-        </footer>
-      </blockquote>
-    </div>
-  </section>
-
-  <!-- ================= SECTION 5: SERVICES ================= -->
-  <section class="max-w-site mx-auto px-6 md:px-8 py-16 md:py-24 w-full">
-    <div class="text-center max-w-2xl mx-auto mb-14">
-      <div class="text-caps text-mulberry-vivid uppercase mb-3">End-to-End Property Expertise</div>
-      <h2 class="font-serif text-h1-sm md:text-h1 text-primary">Comprehensive West London Services</h2>
-      <p class="text-body text-on-surface-variant mt-3">
-        Tailored residential solutions engineered for vendors, buyers, landlords, and tenants across prime West London boroughs.
-      </p>
-    </div>
-
-    <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-5">
-      <div class="bg-white border border-border-hairline rounded-lg p-6 flex flex-col hover:border-border-strong transition-colors">
-        <div class="w-10 h-10 rounded bg-surface-low flex items-center justify-center text-primary mb-5">
-          <span class="material-symbols-outlined text-[20px]">cottage</span>
-        </div>
-        <h3 class="font-serif text-[19px] text-primary mb-2">Residential Sales</h3>
-        <p class="text-small text-on-surface-variant leading-relaxed mb-6">
-          Targeted multichannel marketing across Zoopla, OnTheMarket, and local private buyer networks, with accompanied viewings and proactive chain progression.
-        </p>
-        <a class="mt-auto inline-flex items-center gap-1.5 text-meta font-semibold text-primary hover:gap-2.5 transition-all uppercase tracking-wider" href="sell.html">
-          Selling process
-          <span class="material-symbols-outlined text-[13px]">arrow_forward</span>
-        </a>
-      </div>
-
-      <div class="bg-white border border-border-hairline rounded-lg p-6 flex flex-col hover:border-border-strong transition-colors">
-        <div class="w-10 h-10 rounded bg-surface-low flex items-center justify-center text-primary mb-5">
-          <span class="material-symbols-outlined text-[20px]">key</span>
-        </div>
-        <h3 class="font-serif text-[19px] text-primary mb-2">Residential Lettings</h3>
-        <p class="text-small text-on-surface-variant leading-relaxed mb-6">
-          Rigorous referencing of corporate and prime individual tenants. Consistently achieving rapid tenancy turnaround and market-setting yields in W6, SW6 and W4.
-        </p>
-        <a class="mt-auto inline-flex items-center gap-1.5 text-meta font-semibold text-primary hover:gap-2.5 transition-all uppercase tracking-wider" href="let.html">
-          Landlord guide
-          <span class="material-symbols-outlined text-[13px]">arrow_forward</span>
-        </a>
-      </div>
-
-      <div class="bg-white border border-border-hairline rounded-lg p-6 flex flex-col hover:border-border-strong transition-colors">
-        <div class="w-10 h-10 rounded bg-surface-low flex items-center justify-center text-primary mb-5">
-          <span class="material-symbols-outlined text-[20px]">construction</span>
-        </div>
-        <h3 class="font-serif text-[19px] text-primary mb-2">Property Management</h3>
-        <p class="text-small text-on-surface-variant leading-relaxed mb-6">
-          Full statutory compliance, periodic asset inspections, trusted artisan tradesmen and client money protection under the SafeAgent scheme.
-        </p>
-        <a class="mt-auto inline-flex items-center gap-1.5 text-meta font-semibold text-primary hover:gap-2.5 transition-all uppercase tracking-wider" href="property-management.html">
-          Management scope
-          <span class="material-symbols-outlined text-[13px]">arrow_forward</span>
-        </a>
-      </div>
-
-      <div class="bg-white border border-border-hairline rounded-lg p-6 flex flex-col hover:border-border-strong transition-colors">
-        <div class="w-10 h-10 rounded bg-surface-low flex items-center justify-center text-primary mb-5">
-          <span class="material-symbols-outlined text-[20px]">calculate</span>
-        </div>
-        <h3 class="font-serif text-[19px] text-primary mb-2">Market Valuations</h3>
-        <p class="text-small text-on-surface-variant leading-relaxed mb-6">
-          Honest, evidence-grounded appraisals based on real-time West London transaction data, helping you position your property to maximise value.
-        </p>
-        <a class="mt-auto inline-flex items-center gap-1.5 text-meta font-semibold text-primary hover:gap-2.5 transition-all uppercase tracking-wider" href="valuation.html">
-          Book valuation
-          <span class="material-symbols-outlined text-[13px]">arrow_forward</span>
-        </a>
-      </div>
-    </div>
-  </section>
-
-  <!-- ================= SECTION 6: VALUATION CTA ================= -->
-  <section class="w-full bg-plum-charcoal text-white py-16 md:py-24">
-    <div class="max-w-site mx-auto px-6 md:px-8">
-      <div class="grid grid-cols-1 lg:grid-cols-12 gap-12 items-center">
-
-        <div class="lg:col-span-7">
-          <div class="text-caps text-white/50 uppercase mb-3">Accurate Market Appraisals</div>
-          <h2 class="font-serif text-h1-sm md:text-h1 leading-tight">Thinking of selling or letting your property in West London?</h2>
-          <p class="text-body text-white/65 mt-5 max-w-xl leading-relaxed">
-            Start a confidential conversation with John and the team about your property's true value in the current market. We combine hyper-local transaction comparables with hands-on insight across Hammersmith, Chiswick and Fulham.
+          <h3 class="font-serif text-[19px] text-primary mb-2">Residential Lettings</h3>
+          <p class="text-small text-on-surface-variant leading-relaxed mb-6">
+            Rigorous referencing of corporate and prime individual tenants, achieving rapid tenancy turnaround.
           </p>
-          <div class="flex flex-wrap items-center gap-3 mt-8">
-            <a href="valuation.html" class="btn bg-white text-primary hover:bg-surface-low">Request a valuation</a>
-            <a href="tel:02087418485" class="text-meta text-white/60 hover:text-white transition-colors flex items-center gap-2">
-              <span class="material-symbols-outlined text-[14px]">call</span>
-              020 8741 8485
-            </a>
-          </div>
+          <a class="mt-auto inline-flex items-center gap-1.5 text-meta font-semibold text-primary hover:gap-2.5 transition-all uppercase tracking-wider" href="let.html">
+            Landlord guide
+            <span class="material-symbols-outlined text-[13px]">arrow_forward</span>
+          </a>
         </div>
 
-        <div class="lg:col-span-5 border border-white/10 rounded-lg p-6">
-          <div class="text-caps text-white/50 uppercase mb-2">Direct Telephone</div>
-          <div class="font-serif text-[26px] tracking-tight">020 8741 8485</div>
-          <div class="text-meta text-white/50 mt-1">Mon – Fri 9:00 – 18:30 &nbsp;·&nbsp; Sat 10:00 – 16:00</div>
-
-          <div class="mt-6 pt-6 border-t border-white/10 space-y-3">
-            <div class="flex items-start gap-3">
-              <span class="w-5 h-5 rounded-full border border-white/20 flex items-center justify-center text-[10px] font-semibold text-white/70 shrink-0 mt-0.5">1</span>
-              <span class="text-small text-white/65">No-obligation, honest appraisal of market positioning</span>
-            </div>
-            <div class="flex items-start gap-3">
-              <span class="w-5 h-5 rounded-full border border-white/20 flex items-center justify-center text-[10px] font-semibold text-white/70 shrink-0 mt-0.5">2</span>
-              <span class="text-small text-white/65">Bespoke marketing strategy tailored to your timeline</span>
-            </div>
-            <div class="flex items-start gap-3">
-              <span class="w-5 h-5 rounded-full border border-white/20 flex items-center justify-center text-[10px] font-semibold text-white/70 shrink-0 mt-0.5">3</span>
-              <span class="text-small text-white/65">Direct access to pre-qualified buyers and prime tenants</span>
-            </div>
+        <div class="bg-white border border-border-hairline rounded-lg p-6 flex flex-col hover:border-border-strong transition-colors">
+          <div class="w-10 h-10 rounded bg-surface-low flex items-center justify-center text-primary mb-5">
+            <span class="material-symbols-outlined text-[20px]">construction</span>
           </div>
+          <h3 class="font-serif text-[19px] text-primary mb-2">Property Management</h3>
+          <p class="text-small text-on-surface-variant leading-relaxed mb-6">
+            Full statutory compliance, periodic asset inspections, and client money protection under SafeAgent.
+          </p>
+          <a class="mt-auto inline-flex items-center gap-1.5 text-meta font-semibold text-primary hover:gap-2.5 transition-all uppercase tracking-wider" href="property-management.html">
+            Management scope
+            <span class="material-symbols-outlined text-[13px]">arrow_forward</span>
+          </a>
+        </div>
+
+        <div class="bg-white border border-border-hairline rounded-lg p-6 flex flex-col hover:border-border-strong transition-colors">
+          <div class="w-10 h-10 rounded bg-surface-low flex items-center justify-center text-primary mb-5">
+            <span class="material-symbols-outlined text-[20px]">calculate</span>
+          </div>
+          <h3 class="font-serif text-[19px] text-primary mb-2">Market Valuations</h3>
+          <p class="text-small text-on-surface-variant leading-relaxed mb-6">
+            Honest, evidence-grounded appraisals based on real-time West London transaction data.
+          </p>
+          <a class="mt-auto inline-flex items-center gap-1.5 text-meta font-semibold text-primary hover:gap-2.5 transition-all uppercase tracking-wider" href="valuation.html">
+            Book valuation
+            <span class="material-symbols-outlined text-[13px]">arrow_forward</span>
+          </a>
         </div>
       </div>
     </div>
   </section>
 
-  <!-- ================= SECTION 7: TESTIMONIALS ================= -->
+  <!-- ================= SECTION 4: TESTIMONIALS ================= -->
   <section class="max-w-site mx-auto px-6 md:px-8 py-16 md:py-24 w-full">
     <div class="flex flex-col md:flex-row md:items-end justify-between gap-4 mb-10">
       <div>
@@ -565,7 +383,7 @@ tailwind.config = {
       </div>
     </div>
 
-    <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-5">
+    <div class="grid grid-cols-1 md:grid-cols-3 gap-5">
       <div class="bg-white border border-border-hairline rounded-lg p-5 flex flex-col">
         <div class="flex gap-0.5 text-amber-500 mb-3">
           <span class="material-symbols-outlined text-[13px]" style="font-variation-settings:'FILL' 1;">star</span>
@@ -609,23 +427,6 @@ tailwind.config = {
           <span class="material-symbols-outlined text-[13px]" style="font-variation-settings:'FILL' 1;">star</span>
         </div>
         <p class="text-small text-on-surface-variant leading-relaxed italic flex-1">
-          "They have always been very responsive, helpful, and professional throughout the tenancy. They addressed our queries very quickly and efficiently. This was with no doubt the best Estate Agent we have dealt with since we moved to the UK."
-        </p>
-        <div class="mt-5 pt-4 border-t border-border-hairline">
-          <div class="text-label font-semibold text-primary">Benedetta Vidtri</div>
-          <div class="text-meta text-slate-muted">Tenant</div>
-        </div>
-      </div>
-
-      <div class="bg-white border border-border-hairline rounded-lg p-5 flex flex-col">
-        <div class="flex gap-0.5 text-amber-500 mb-3">
-          <span class="material-symbols-outlined text-[13px]" style="font-variation-settings:'FILL' 1;">star</span>
-          <span class="material-symbols-outlined text-[13px]" style="font-variation-settings:'FILL' 1;">star</span>
-          <span class="material-symbols-outlined text-[13px]" style="font-variation-settings:'FILL' 1;">star</span>
-          <span class="material-symbols-outlined text-[13px]" style="font-variation-settings:'FILL' 1;">star</span>
-          <span class="material-symbols-outlined text-[13px]" style="font-variation-settings:'FILL' 1;">star</span>
-        </div>
-        <p class="text-small text-on-surface-variant leading-relaxed italic flex-1">
           "John and his team at London Estates have represented my interests for at least 8 years. He was successful in selling a high-end residential property quickly and for top price. I have found his integrity to be faultless."
         </p>
         <div class="mt-5 pt-4 border-t border-border-hairline">
@@ -636,8 +437,8 @@ tailwind.config = {
     </div>
   </section>
 
-  <!-- ================= SECTION 8: NEIGHBOURHOODS ================= -->
-  <section class="w-full bg-surface-low border-y border-border-hairline py-16 md:py-24">
+  <!-- ================= SECTION 5: NEIGHBOURHOODS ================= -->
+  <section class="w-full bg-linen-warm border-y border-border-hairline py-16 md:py-24">
     <div class="max-w-site mx-auto px-6 md:px-8">
       <div class="flex flex-col md:flex-row md:items-end justify-between gap-4 mb-10">
         <div class="max-w-2xl">
@@ -651,7 +452,7 @@ tailwind.config = {
         </a>
       </div>
 
-      <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-5">
+      <div class="grid grid-cols-1 md:grid-cols-3 gap-5">
 
         <a href="hammersmith.html" class="group bg-white border border-border-hairline rounded-lg overflow-hidden hover:border-border-strong transition-colors block">
           <div class="aspect-[16/10] overflow-hidden bg-surface-low">
@@ -697,56 +498,11 @@ tailwind.config = {
             </div>
           </div>
         </a>
-
-        <a href="brook-green.html" class="group bg-white border border-border-hairline rounded-lg overflow-hidden hover:border-border-strong transition-colors block">
-          <div class="aspect-[16/10] overflow-hidden bg-surface-low">
-            <div class="bg-cover bg-center w-full h-full group-hover:scale-[1.03] transition-transform duration-500" role="img" aria-label="Brook Green"
-                 style="background-image: url('https://lh3.googleusercontent.com/aida-public/AB6AXuDZi3a5lR4yws444KOj4POpVNW_pJDQ1XVXdsWDVSpwYroFUoG7fPBSo_8QC7JVLmNVNzldoiOHF1GOG5F97FZ3EFHHn10FnTcKo5JvsxZpO1VnxP7p3h75wOxLJIcGJihtvWgMIXjDXZAvAf8ZjkI6EMRewAdkEGRg1em78SIyQpW6hgDTeUbbStrIqLMH-ex1_Cbvr_Nwb7k3xvdVEu8l5xj5ElAZ-8TqmqC5c-PIaJ7vGmrUp1BS')"></div>
-          </div>
-          <div class="p-5">
-            <h3 class="font-serif text-[18px] text-primary">Brook Green W14</h3>
-            <p class="text-small text-on-surface-variant mt-1.5">Stunning tennis greens, Edwardian mansions and close proximity to Kensington.</p>
-            <div class="mt-4 inline-flex items-center gap-1.5 text-meta font-semibold text-mulberry-vivid uppercase tracking-wider">
-              View W14 homes
-              <span class="material-symbols-outlined text-[13px]">arrow_forward</span>
-            </div>
-          </div>
-        </a>
-
-        <a href="shepherds-bush.html" class="group bg-white border border-border-hairline rounded-lg overflow-hidden hover:border-border-strong transition-colors block">
-          <div class="aspect-[16/10] overflow-hidden bg-surface-low">
-            <div class="bg-cover bg-center w-full h-full group-hover:scale-[1.03] transition-transform duration-500" role="img" aria-label="Shepherds Bush green"
-                 style="background-image: url('https://lh3.googleusercontent.com/aida-public/AB6AXuDZi3a5lR4yws444KOj4POpVNW_pJDQ1XVXdsWDVSpwYroFUoG7fPBSo_8QC7JVLmNVNzldoiOHF1GOG5F97FZ3EFHHn10FnTcKo5JvsxZpO1VnxP7p3h75wOxLJIcGJihtvWgMIXjDXZAvAf8ZjkI6EMRewAdkEGRg1em78SIyQpW6hgDTeUbbStrIqLMH-ex1_Cbvr_Nwb7k3xvdVEu8l5xj5ElAZ-8TqmqC5c-PIaJ7vGmrUp1BS')"></div>
-          </div>
-          <div class="p-5">
-            <h3 class="font-serif text-[18px] text-primary">Shepherds Bush W12</h3>
-            <p class="text-small text-on-surface-variant mt-1.5">Westfield, the Green and excellent Central &amp; Overground links into the City.</p>
-            <div class="mt-4 inline-flex items-center gap-1.5 text-meta font-semibold text-mulberry-vivid uppercase tracking-wider">
-              View W12 homes
-              <span class="material-symbols-outlined text-[13px]">arrow_forward</span>
-            </div>
-          </div>
-        </a>
-
-        <a href="ealing-acton.html" class="group bg-white border border-border-hairline rounded-lg overflow-hidden hover:border-border-strong transition-colors block">
-          <div class="aspect-[16/10] overflow-hidden bg-surface-low">
-            <div class="bg-cover bg-center w-full h-full group-hover:scale-[1.03] transition-transform duration-500" role="img" aria-label="Ealing Edwardian houses"
-                 style="background-image: url('https://lh3.googleusercontent.com/aida-public/AB6AXuBLTo8P4aUKZk7ePuEQlGgL4le_yJMFa1r96FlMoBBHzZN24Ky22JCxKHN9sXW-lRCLlCB_NJExsWwLYnMr6sTgr8Jz8RjnYz1bEajnnmLa06TF59AjjiNcmyC2aSrGl7CwesSf7Zq70umTOV98P9tOrnPBjjJl6mZlTquB7Q1hFJrJ70lyIs3Omcik83dO1r2uMDVC4pIAtR7oI8Wk_T9r4bsjnrmleK1-v41xhRr69ldBVWXZg-EP')"></div>
-          </div>
-          <div class="p-5">
-            <h3 class="font-serif text-[18px] text-primary">Ealing &amp; Acton</h3>
-            <p class="text-small text-on-surface-variant mt-1.5">Spacious garden properties, rapid Elizabeth Line commuting and leafy parks.</p>
-            <div class="mt-4 inline-flex items-center gap-1.5 text-meta font-semibold text-mulberry-vivid uppercase tracking-wider">
-              View W5/W3 homes
-              <span class="material-symbols-outlined text-[13px]">arrow_forward</span>
-            </div>
-          </div>
-        </a>
       </div>
     </div>
   </section>
 
-  <!-- ================= SECTION 9: CLOSING ================= -->
+  <!-- ================= SECTION 6: CLOSING ================= -->
   <section class="w-full bg-primary text-white py-16 md:py-24">
     <div class="max-w-3xl mx-auto px-6 md:px-8 text-center">
       <div class="text-caps text-white/50 uppercase mb-4">Start The Conversation</div>
@@ -1082,12 +838,38 @@ tailwind.config = {
 
   function initSearch() {
     var form = document.getElementById('search-form');
-    var grid = document.getElementById('featured-grid');
+    var grid = document.getElementById('listing-grid') || document.getElementById('featured-grid');
+    var countEl = document.getElementById('result-count');
+    
+    if (!grid) return;
+
+    // Initial render based on the page type
+    function renderDefault() {
+      var list;
+      if (PAGE === 'buy') {
+        list = PROPERTIES.filter(function (p) { return !p.rent; });
+      } else if (PAGE === 'rent') {
+        list = PROPERTIES.filter(function (p) { return p.rent; });
+      } else {
+        list = PROPERTIES.filter(function (p) { return p.featured; }).slice(0, 3);
+      }
+      renderGrid(grid, list);
+      
+      if (countEl) {
+        countEl.textContent = PAGE === 'home' 
+          ? 'Showing ' + list.length + ' featured residences' 
+          : list.length + ' matching properties';
+      }
+    }
+
+    renderDefault();
+
+    // If there's no search form on the page (e.g., Homepage), stop here.
+    if (!form) return;
+
     var priceSel = document.getElementById('price-selector');
     var modeInput = document.getElementById('search-mode');
-    var countEl = document.getElementById('result-count');
     var resetBtn = document.getElementById('reset-search');
-    if (!form || !grid) return;
 
     function setMode(mode) {
       if (modeInput) modeInput.value = mode;
@@ -1104,29 +886,16 @@ tailwind.config = {
       }
     }
 
-    function updateCount(n, featured) {
-      if (!countEl) return;
-      countEl.textContent = featured
-        ? n + ' featured residence' + (n === 1 ? '' : 's')
-        : n + ' matching propert' + (n === 1 ? 'y' : 'ies');
-    }
-
-    function renderFeatured() {
-      var list = PROPERTIES.filter(function (p) { return p.featured; });
-      renderGrid(grid, list);
-      updateCount(list.length, true);
-      if (resetBtn) resetBtn.classList.add('hidden');
-    }
-
     function run() {
       var list = PROPERTIES.filter(function (p) { return matches(p, readFilters(form)); });
       renderGrid(grid, list);
-      updateCount(list.length, false);
+      if (countEl) {
+        countEl.textContent = list.length + ' matching properties';
+      }
       if (resetBtn) resetBtn.classList.remove('hidden');
     }
 
-    setMode('buy');
-    renderFeatured();
+    setMode(modeInput ? modeInput.value : 'buy');
 
     Array.prototype.forEach.call(document.querySelectorAll('[data-search-mode]'), function (b) {
       b.addEventListener('click', function () {
@@ -1149,7 +918,7 @@ tailwind.config = {
           if (el) el.value = q[k];
         });
         run();
-        var target = document.getElementById('featured-listings');
+        var target = document.getElementById('listing-results') || document.getElementById('featured-listings');
         if (target) target.scrollIntoView({ behavior: 'smooth', block: 'start' });
       });
     });
@@ -1157,8 +926,7 @@ tailwind.config = {
     if (resetBtn) {
       resetBtn.addEventListener('click', function () {
         form.reset();
-        setMode('buy');
-        renderFeatured();
+        renderDefault();
       });
     }
   }
